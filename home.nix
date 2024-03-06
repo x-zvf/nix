@@ -6,7 +6,15 @@
   #home.stateVersion = "23.11"; # Please read the comment before changing.
   home.stateVersion = "24.05"; # Please read the comment before changing.
 
+  nixpkgs = {
+    config = {
+      allowUnfree = true;
+      allowUnfreePredicate = (_: true);
+    };
+  };
+
   home.packages = with pkgs; [
+    (nerdfonts.override { fonts = [ "FiraCode" ]; })
     clang
     firefox
     kate
@@ -14,18 +22,17 @@
     alacritty
     kitty
     fastfetch
-    (nerdfonts.override { fonts = [ "FiraCode" ]; })
-
-    # # You can also create simple shell scripts directly inside your
-    # # configuration. For example, this adds a command 'my-hello' to your
-    # # environment:
-    # (pkgs.writeShellScriptBin "my-hello" ''
-    #   echo "Hello, ${config.home.username}!"
-    # '')
+    bitwarden
+    jetbrains.idea-ultimate
+    jetbrains.datagrip
+    nextcloud-client
+    mpv
+    vlc
+    pferd
+    rambox
+    homebank
   ];
 
-  # Home Manager is pretty good at managing dotfiles. The primary way to manage
-  # plain files is through 'home.file'.
   home.file = {
     # # Building this configuration will create a copy of 'dotfiles/screenrc' in
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
@@ -42,6 +49,13 @@
     EDITOR = "nvim";
     VISUAL = "nvim";
     BROWSER = "firefox";
+  };
+
+  programs.vscode = {
+    enable = true;
+    extensions = with pkgs.vscode-extensions; [
+      dracula-theme.theme-dracula
+    ];
   };
 
   programs.home-manager.enable = true;
