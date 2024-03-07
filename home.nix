@@ -40,6 +40,16 @@ default-cache-ttl 1000000
 max-cache-ttl 1000000
 '';
 
+    ".gitconfig".text = ''
+[user]
+	email = peter@bohner.me
+	name = Péter Bohner (xzvf)
+[pull]
+	rebase = true
+[credential]
+	helper = store
+'';
+
   };
   home.sessionVariables = {
     EDITOR = "nvim";
