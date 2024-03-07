@@ -59,7 +59,6 @@
   sound.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
-  services.fwupd.enable = true;
   services.pipewire = {
     enable = true;
     alsa.enable = true;
@@ -68,6 +67,11 @@
     jack.enable = true;
   };
 
+
+  # Framework 13 specific changes
+  hardware.sensor.iio.enable = true;
+  services.fwupd.enable = true;
+  services.power-profiles-daemon.enable = true;
 
   programs.zsh.enable = true;
   users.users.xzvf = {
