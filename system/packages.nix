@@ -2,19 +2,19 @@
 
 {
   environment.systemPackages = with pkgs; [
-     neovim
-     wget
-     tmux
-     git
-     gcc
-     zsh
-     stow
-     htop
      btop
+     gcc
+     gdb
+     git
+     htop
      iotop
+     neovim
      ripgrep
      ripgrep-all
      rsync
-     easyeffects
+     stow
+     tmux
+     wget
+     zsh
   ];
 }

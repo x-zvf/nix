@@ -1,23 +1,33 @@
 { config, pkgs, ... }:
 {
   home.packages = with pkgs; [
-    (nerdfonts.override { fonts = [ "FiraCode" ]; })
-    clang
-    firefox
-    kate
-    thunderbird
+    # desktop applications
     alacritty
-    fastfetch
     bitwarden
-    jetbrains.idea-ultimate
-    jetbrains.datagrip
-    nextcloud-client
-    mpv
-    vlc
-    pferd
-    rambox
+    easyeffects
+    firefox
     homebank
+    jetbrains.datagrip
+    jetbrains.idea-ultimate
+    mpv
+    nextcloud-client
+    rambox
+    thunderbird
+    vlc
+
+
+    # cli tools
+    bat
+    clang
+    fastfetch
     gh
     glab
+    glances
+    lsd
+    pferd
+    yt-dlp
+
+    # misc
+    (nerdfonts.override { fonts = [ "FiraCode" ]; })
   ];
 }
