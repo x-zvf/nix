@@ -14,6 +14,9 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelParams = [
+     "rd.luks.options=discard"
+  ];
 
   networking.hostName = "rubidium"; # Define your hostname.
   networking.networkmanager.enable = true;
@@ -37,10 +40,10 @@
 #    LC_TELEPHONE = "de_DE.UTF-8";
 #    LC_TIME = "en_DK.UTF-8";
 #  };
-#  services.xserver.xkb = {
-#    layout = "gb";
-#    variant = "";
-#  };
+   services.xserver.xkb = {
+     layout = "gb";
+     variant = "";
+   };
 
   services.xserver.enable = true;
   services.xserver.displayManager.sddm.enable = true;
@@ -56,6 +59,7 @@
   sound.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
+  services.fwupd.enable = true;
   services.pipewire = {
     enable = true;
     alsa.enable = true;

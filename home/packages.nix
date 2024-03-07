@@ -15,10 +15,12 @@
     thunderbird
     vlc
 
+    # languages
+    clang
+    python3Full
 
     # cli tools
     bat
-    clang
     fastfetch
     gh
     glab

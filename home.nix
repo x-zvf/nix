@@ -15,6 +15,7 @@
   imports = [
     ./home/packages.nix
     ./home/zsh/zsh.nix
+    ./home/tmux/tmux.nix
   ];
 
   programs.kitty = {
@@ -27,12 +28,18 @@
       close_on_child_detach = "yes";
     };
   };
+  programs.fzf.enable = true;
 
   home.file = {
     ".gdbinit".text = ''
 set debuginfod enabled on
 set auto-load safe-path /
-    '';
+'';
+    ".gnupg/gpg-agent.conf".text = ''
+default-cache-ttl 1000000
+max-cache-ttl 1000000
+'';
+
   };
   home.sessionVariables = {
     EDITOR = "nvim";
