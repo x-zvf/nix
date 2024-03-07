@@ -28,6 +28,7 @@
     lsd
     pferd
     yt-dlp
+    tree
 
     # misc
     (nerdfonts.override { fonts = [ "FiraCode" ]; })

@@ -50,7 +50,7 @@
   services.xserver.displayManager.sddm.wayland.enable = true;
   services.xserver.desktopManager.plasma6.enable = true;
 
-
+  hardware.enableAllFirmware = true;
   hardware.bluetooth.enable = true;
   services.hardware.bolt.enable = true;
   services.printing.enable = true;

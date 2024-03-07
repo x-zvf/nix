@@ -16,7 +16,15 @@
       options = [ "noatime" "discard" ];
     };
 
-  boot.initrd.luks.devices."luks-f2821f9a-3082-4fb9-afe4-fc359749b6a8".device = "/dev/disk/by-uuid/f2821f9a-3082-4fb9-afe4-fc359749b6a8";
+  boot.initrd.luks.devices."luks-f2821f9a-3082-4fb9-afe4-fc359749b6a8" = {
+    device = "/dev/disk/by-uuid/f2821f9a-3082-4fb9-afe4-fc359749b6a8";
+    allowDiscards = true;
+  };
+
+  boot.initrd.luks.devices."luks-7490ea57-f875-4e9b-a096-ba9980df4fce" = {
+    device = "/dev/disk/by-uuid/7490ea57-f875-4e9b-a096-ba9980df4fce";
+    allowDiscards = true;
+  };
 
   fileSystems."/boot" =
     { device = "/dev/disk/by-uuid/EF4E-A49B";
@@ -30,14 +38,8 @@
       options = [ "noatime" "discard" ];
     };
 
-  boot.initrd.luks.devices."luks-7490ea57-f875-4e9b-a096-ba9980df4fce".device = "/dev/disk/by-uuid/7490ea57-f875-4e9b-a096-ba9980df4fce";
-
   swapDevices = [ ];
 
-  # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
-  # (the default) this is the recommended approach. When using systemd-networkd it's
-  # still possible to use this option, but it's recommended to use it in conjunction
-  # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
   networking.useDHCP = lib.mkDefault true;
   # networking.interfaces.eth0.useDHCP = lib.mkDefault true;
   # networking.interfaces.wlp1s0.useDHCP = lib.mkDefault true;
