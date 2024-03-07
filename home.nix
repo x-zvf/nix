@@ -3,8 +3,7 @@
 {
   home.username = "xzvf";
   home.homeDirectory = "/home/xzvf";
-  #home.stateVersion = "23.11"; # Please read the comment before changing.
-  home.stateVersion = "24.05"; # Please read the comment before changing.
+  home.stateVersion = "24.05";
 
   nixpkgs = {
     config = {
@@ -13,24 +12,8 @@
     };
   };
 
-  home.packages = with pkgs; [
-    (nerdfonts.override { fonts = [ "FiraCode" ]; })
-    clang
-    firefox
-    kate
-    thunderbird
-    alacritty
-    fastfetch
-    bitwarden
-    jetbrains.idea-ultimate
-    jetbrains.datagrip
-    nextcloud-client
-    mpv
-    vlc
-    pferd
-    rambox
-    homebank
-    gh
+  imports = [
+    ./home/packages.nix
   ];
 
   programs.kitty = {
