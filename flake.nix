@@ -8,6 +8,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, ... }@inputs:
@@ -16,7 +20,6 @@
       pkgs = nixpkgs.legacyPackages.${system};
     in
     {
-    
       nixosConfigurations.default = nixpkgs.lib.nixosSystem {
           specialArgs = {inherit inputs;};
           modules = [ 
@@ -24,6 +27,6 @@
             inputs.home-manager.nixosModules.default
           ];
         };
-
+      formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
     };
 }
