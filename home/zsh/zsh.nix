@@ -11,21 +11,27 @@
         "romkatv/powerlevel10k kind:fpath"
       ];
       initExtra = ''
-        mkcd() {
-	    mkdir -p "$1" && cd "$1"
-        }
-	wttr()
-	{
-	    local request="wttr.in/"
-	    [ "$(tput cols)" -lt 125 ] && request+='?n'
-	    curl -H "Accept-Language: $\{LANG%_*}" --compressed "$request"
-	}
-	s() {
-	    nohup $@ </dev/null >/dev/null 2>&1 &
-	}
+mkcd() {
+    mkdir -p "$1" && cd "$1"
+}
+wttr()
+{
+    local request="wttr.in/"
+    [ "$(tput cols)" -lt 125 ] && request+='?n'
+    curl -H "Accept-Language: $\{LANG%_*}" --compressed "$request"
+}
+s() {
+    nohup $@ </dev/null >/dev/null 2>&1 &
+}
+# proper up-arrow searching
+autoload -Uz history-search-end
+zle -N history-beginning-search-backward-end history-search-end
+zle -N history-beginning-search-forward-end history-search-end
+bindkey "$terminfo[kcuu1]" history-beginning-search-backward-end
+bindkey "$terminfo[kcud1]" history-beginning-search-forward-end
 
-        [[ ! -f ${./p10k.zsh} ]] || source ${./p10k.zsh}
-        autoload -Uz promptinit && promptinit && prompt powerlevel10k
+[[ ! -f ${./p10k.zsh} ]] || source ${./p10k.zsh}
+autoload -Uz promptinit && promptinit && prompt powerlevel10k
       '';
 
       shellAliases = {

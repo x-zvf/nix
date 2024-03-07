@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   home.username = "xzvf";
@@ -16,6 +16,7 @@
     ./home/packages.nix
     ./home/zsh/zsh.nix
     ./home/tmux/tmux.nix
+    ./home/neovim/neovim.nix
   ];
 
   programs.kitty = {

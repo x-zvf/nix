@@ -5,10 +5,14 @@
     alacritty
     bitwarden
     easyeffects
-    firefox
+
+    # firefox
+    (pkgs.wrapFirefox (pkgs.firefox-unwrapped.override { pipewireSupport = true;}) {})
+
     homebank
     jetbrains.datagrip
     jetbrains.idea-ultimate
+    libreoffice
     mpv
     nextcloud-client
     rambox
