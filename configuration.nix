@@ -64,6 +64,7 @@
 
   services.printing.enable = true;
   hardware.bluetooth.enable = true;
+  services.hardware.bolt.enable = true;
 
   sound.enable = true;
   hardware.pulseaudio.enable = false;
@@ -82,7 +83,7 @@
 
   users.users.xzvf = {
     isNormalUser = true;
-    description = "xzvf";
+    description = "Péter Bohner";
     shell = pkgs.zsh;
     extraGroups = [ "networkmanager" "wheel" "dialout" "networkmanager" ];
   };
