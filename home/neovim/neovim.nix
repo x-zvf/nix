@@ -15,10 +15,6 @@
       lualine.enable = true;
     };
     colorschemes.dracula.enable = true;
-    #colorschemes.catppuccin = {
-    #  enable = true;
-    #  flavour = "mocha";
-    #};
 
     clipboard = {
       register = "unnamedplus";
@@ -54,6 +50,7 @@
         };
       };
       todo-comments.enable = true;
+      comment-nvim.enable = true;
       illuminate.enable = true;
       which-key.enable = true;
       gitsigns.enable = true;
@@ -67,8 +64,7 @@
         enable = true;
         extensions.fzf-native.enable = true;
         keymaps = {
-          "<leader>fff" = "find_files";
-          "<leader>ffh" = "find_files";
+          "<leader>fff" = "find_files"; # ffh is defined below as a cmd
           "<leader>fg" = "live_grep";
           "<leader>fb" = "buffers";
           "<leader>fh" = "help_tags";
@@ -233,7 +229,7 @@
       {
         mode = "v";
         key = "<C-/>";
-        action = "<Plug>(comment_toggle_blockwise_current)";
+        action = "<Plug>(comment_toggle_blockwise_visual)";
         options.desc = "(Un)comment in Visual Mode";
       }
       {
@@ -241,6 +237,12 @@
         key = "<C-n>";
         action = "<CMD>Neotree toggle<CR>";
         options.desc = "Toggle Neotree";
+      }
+      {
+        mode = "n";
+        key = "<leader>ffh";
+        action = "<CMD>Telescope find_files hidden=true<CR>";
+        options.desc = "Find files, including hidden ones";
       }
     ];
   };

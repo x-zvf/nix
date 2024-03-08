@@ -35,6 +35,9 @@
     corepack_21
     rust-bin.nightly.latest.default
 
+    #nix-tools
+    alejandra
+
     # cli tools
     bat
     fastfetch
