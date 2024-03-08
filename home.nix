@@ -6,6 +6,7 @@
 }: {
   home.username = "xzvf";
   home.homeDirectory = "/home/xzvf";
+  home.
   home.stateVersion = "24.05";
 
   nixpkgs = {
@@ -45,6 +46,8 @@
       default-cache-ttl 1000000
       max-cache-ttl 1000000
     '';
+
+    ".test".text = ''it be workin'';
 
     ".gitconfig".text = ''
       [user]

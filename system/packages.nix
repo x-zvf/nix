@@ -13,12 +13,10 @@
     htop
     iotop
     neovim
-    ripgrep
-    ripgrep-all
     rsync
-    stow
     tmux
     wget
     zsh
+    home-manager
   ];
 }

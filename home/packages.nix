@@ -22,8 +22,7 @@
     thunderbird
     vlc
 
-    # languages
-    clang
+    # other programming languages via devshells
     python3Full
 
     # cli tools
@@ -34,10 +33,13 @@
     glances
     lsd
     pferd
-    yt-dlp
+    ripgrep
+    ripgrep-all
+    stow
     tree
+    yt-dlp
 
-    # misc
+    # Fonts
     nerdfonts
     fira-code
   ];

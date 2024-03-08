@@ -14,11 +14,11 @@
     plugins = {
       lualine.enable = true;
     };
-    #colorschemes.dracula.enable = true;
-    colorschemes.catppuccin = {
-      enable = true;
-      flavour = "mocha";
-    };
+    colorschemes.dracula.enable = true;
+    #colorschemes.catppuccin = {
+    #  enable = true;
+    #  flavour = "mocha";
+    #};
 
     clipboard = {
       register = "unnamedplus";
@@ -65,13 +65,10 @@
       };
       telescope = {
         enable = true;
-        extraOptions = {
-          pickers.find_files = {
-            hidden = true;
-          };
-        };
+        extensions.fzf-native.enable = true;
         keymaps = {
-          "<leader>ff" = "find_files";
+          "<leader>fff" = "find_files";
+          "<leader>ffh" = "find_files";
           "<leader>fg" = "live_grep";
           "<leader>fb" = "buffers";
           "<leader>fh" = "help_tags";
@@ -90,6 +87,46 @@
         ensureInstalled = "all";
         incrementalSelection.enable = true;
       };
+      treesitter-textobjects = {
+        enable = true;
+        lspInterop.enable = true;
+        select = {
+          enable = true;
+          lookahead = true;
+          keymaps = {
+            "aa" = "@parameter.outer";
+            "ia" = "@parameter.inner";
+            "af" = "@function.outer";
+            "if" = "@function.inner";
+            "ac" = "@class.outer";
+            "ic" = "@class.inner";
+            "ii" = "@conditional.inner";
+            "ai" = "@conditional.outer";
+            "il" = "@loop.inner";
+            "al" = "@loop.outer";
+            "at" = "@comment.outer";
+          };
+        };
+        move = {
+          enable = true;
+          gotoNextStart = {
+            "]m" = "@function.outer";
+            "]]" = "@class.outer";
+          };
+          gotoNextEnd = {
+            "]M" = "@function.outer";
+            "][" = "@class.outer";
+          };
+          gotoPreviousStart = {
+            "[m" = "@function.outer";
+            "[[" = "@class.outer";
+          };
+          gotoPreviousEnd = {
+            "[M" = "@function.outer";
+            "[]" = "@class.outer";
+          };
+        };
+      };
       treesitter-refactor = {
         enable = true;
       };
@@ -100,9 +137,24 @@
 
           ccls.enable = true;
           gopls.enable = true;
+          hls.enable = true;
+          java-language-server.enable = true;
+          prolog-ls.enable = true;
           pyright.enable = true;
+          rust-analyzer = {
+            enable = true;
+            # these are managed by devshell
+            installRustc = false;
+            installCargo = false;
+          };
+          zls.enable = true;
+
 
           html.enable = true;
+          jsonls.enable = true;
+          emmet_ls.enable = true;
+          elmls.enable = true;
+          htmx.enable = true;
           cssls.enable = true;
           tsserver.enable = true;
           svelte.enable = true;
@@ -184,6 +236,12 @@
         key = "<C-/>";
         action = "<Plug>(comment_toggle_blockwise_current)";
         options.desc = "(Un)comment in Visual Mode";
+      }
+      {
+        mode = "n";
+        key = "<C-n>";
+        action = "<CMD>Neotree toggle<CR>";
+        options.desc = "Toggle Neotree";
       }
     ];
   };

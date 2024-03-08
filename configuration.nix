@@ -9,7 +9,7 @@
     ./hardware-configuration.nix
     ./system/packages.nix
     ./system/cron.nix
-    inputs.home-manager.nixosModules.default
+    #inputs.home-manager.nixosModules.default
   ];
 
   boot.loader.systemd-boot.enable = true;
@@ -105,12 +105,12 @@
     shell = pkgs.zsh;
     extraGroups = ["networkmanager" "wheel" "dialout" "networkmanager"];
   };
-  home-manager = {
-    extraSpecialArgs = {inherit inputs;};
-    users = {
-      "xzvf" = import ./home.nix;
-    };
-  };
+  #home-manager = {
+  #  extraSpecialArgs = {inherit inputs;};
+  #  users = {
+  #    "xzvf" = import ./home.nix;
+  #  };
+  #};
 
   programs.mtr.enable = true;
   programs.gnupg.agent = {
