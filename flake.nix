@@ -44,9 +44,9 @@
         inherit rust-overlay;
       };
       modules = [
-        ({ pkgs, ... }: { 
-         nixpkgs.overlays = [ rust-overlay.overlays.default ];
-         home.packages = [ pkgs.rust-bin.nightly.latest.default ];
+        ({pkgs, ...}: {
+          nixpkgs.overlays = [rust-overlay.overlays.default];
+          home.packages = [pkgs.rust-bin.nightly.latest.default];
         })
         ./home.nix
       ];
