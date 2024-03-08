@@ -149,7 +149,6 @@
           };
           zls.enable = true;
 
-
           html.enable = true;
           jsonls.enable = true;
           emmet_ls.enable = true;

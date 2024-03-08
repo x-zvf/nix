@@ -22,8 +22,18 @@
     thunderbird
     vlc
 
-    # other programming languages via devshells
-    python3Full
+    # programming languages
+    clang
+    go
+    ghc
+    jdk21
+    swiProlog
+    python313Full
+    zig
+    shellcheck
+    nodejs_21
+    corepack_21
+    rust-bin.nightly.latest.default
 
     # cli tools
     bat

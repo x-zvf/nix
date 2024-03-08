@@ -6,7 +6,6 @@
 }: {
   home.username = "xzvf";
   home.homeDirectory = "/home/xzvf";
-  home.
   home.stateVersion = "24.05";
 
   nixpkgs = {
