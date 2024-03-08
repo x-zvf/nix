@@ -105,19 +105,14 @@
   services.fwupd.enable = true;
   services.power-profiles-daemon.enable = true;
 
-  programs.zsh.enable = true;
+  #programs.zsh.enable = true;
   users.users.xzvf = {
     isNormalUser = true;
     description = "Péter Bohner";
     shell = pkgs.zsh;
+    ignoreShellProgramCheck = true;
     extraGroups = ["networkmanager" "wheel" "dialout" "networkmanager"];
   };
-  #home-manager = {
-  #  extraSpecialArgs = {inherit inputs;};
-  #  users = {
-  #    "xzvf" = import ./home.nix;
-  #  };
-  #};
 
   programs.mtr.enable = true;
   programs.gnupg.agent = {
