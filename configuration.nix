@@ -68,6 +68,13 @@
     serviceConfig.ExecStart = "${pkgs.bluez}/bin/mpris-proxy";
   };
 
+  services.locate = {
+    enable = true;
+    package = pkgs.mlocate;
+    localuser = null;
+    interval = "hourly";
+  };
+
   services.hardware.bolt.enable = true;
   services.printing.enable = true;
   services.fprintd.enable = true;
