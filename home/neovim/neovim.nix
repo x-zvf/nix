@@ -1,5 +1,8 @@
-{ pkgs, inputs, ... }:
 {
+  pkgs,
+  inputs,
+  ...
+}: {
   imports = [
     inputs.nixvim.homeManagerModules.nixvim
   ];
@@ -39,15 +42,15 @@
 
     plugins = {
       conform-nvim = {
-	enable = true;
+        enable = true;
         formatOnSave = {
           timeoutMs = 500;
           lspFallback = true;
         };
         formattersByFt = {
-          javascript = [ "prettier" ];
-          nix = [ "alejandra" ];
-          rust = [ "rustfmt" ];
+          javascript = ["prettier"];
+          nix = ["alejandra"];
+          rust = ["rustfmt"];
         };
       };
       todo-comments.enable = true;
@@ -99,8 +102,6 @@
           gopls.enable = true;
           pyright.enable = true;
 
-
-
           html.enable = true;
           cssls.enable = true;
           tsserver.enable = true;
@@ -143,11 +144,11 @@
         settings = {
           snippet.expand = "function(args) require('luasnip').lsp_expand(args.body) end";
           sources = [
-            { name = "nvim_lsp"; }
-            { name = "luasnip"; }
-            { name = "path"; }
-            { name = "latex-symbols"; }
-            { name = "buffer"; }
+            {name = "nvim_lsp";}
+            {name = "luasnip";}
+            {name = "path";}
+            {name = "latex-symbols";}
+            {name = "buffer";}
           ];
           mapping = {
             "<C-j>" = "cmp.mapping.scroll_docs(-4)";
@@ -184,7 +185,6 @@
         action = "<Plug>(comment_toggle_blockwise_current)";
         options.desc = "(Un)comment in Visual Mode";
       }
-
     ];
   };
 }

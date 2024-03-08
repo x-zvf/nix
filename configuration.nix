@@ -1,22 +1,22 @@
-{ config, pkgs, inputs, ... }:
-
 {
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  pkgs,
+  inputs,
+  ...
+}: {
+  nix.settings.experimental-features = ["nix-command" "flakes"];
   nix.optimise.automatic = true;
-  imports =
-    [
-      ./hardware-configuration.nix
-      ./system/packages.nix
-      ./system/cron.nix
-      inputs.home-manager.nixosModules.default
-    ];
-
+  imports = [
+    ./hardware-configuration.nix
+    ./system/packages.nix
+    ./system/cron.nix
+    inputs.home-manager.nixosModules.default
+  ];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.kernelParams = [
-     "rd.luks.options=discard"
+    "rd.luks.options=discard"
   ];
 
   networking.hostName = "rubidium"; # Define your hostname.
@@ -26,25 +26,24 @@
   services.avahi.nssmdns4 = true;
   services.resolved.enable = true;
 
-
   time.timeZone = "Europe/Berlin";
   console.keyMap = "uk";
   i18n.defaultLocale = "en_GB.UTF-8";
-#  i18n.extraLocaleSettings = {
-#    LC_ADDRESS = "de_DE.UTF-8";
-#    LC_IDENTIFICATION = "de_DE.UTF-8";
-#    LC_MEASUREMENT = "de_DE.UTF-8";
-#    LC_MONETARY = "de_DE.UTF-8";
-#    LC_NAME = "de_DE.UTF-8";
-#    LC_NUMERIC = "de_DE.UTF-8";
-#    LC_PAPER = "de_DE.UTF-8";
-#    LC_TELEPHONE = "de_DE.UTF-8";
-#    LC_TIME = "en_DK.UTF-8";
-#  };
-   services.xserver.xkb = {
-     layout = "gb";
-     variant = "";
-   };
+  #  i18n.extraLocaleSettings = {
+  #    LC_ADDRESS = "de_DE.UTF-8";
+  #    LC_IDENTIFICATION = "de_DE.UTF-8";
+  #    LC_MEASUREMENT = "de_DE.UTF-8";
+  #    LC_MONETARY = "de_DE.UTF-8";
+  #    LC_NAME = "de_DE.UTF-8";
+  #    LC_NUMERIC = "de_DE.UTF-8";
+  #    LC_PAPER = "de_DE.UTF-8";
+  #    LC_TELEPHONE = "de_DE.UTF-8";
+  #    LC_TIME = "en_DK.UTF-8";
+  #  };
+  services.xserver.xkb = {
+    layout = "gb";
+    variant = "";
+  };
 
   services.xserver.enable = true;
   services.xserver.displayManager.sddm.enable = true;
@@ -58,17 +57,16 @@
     powerOnBoot = true;
     settings = {
       General = {
-	Enable = "Source,Sink,Media,Socket";
+        Enable = "Source,Sink,Media,Socket";
       };
     };
   };
   systemd.user.services.mpris-proxy = {
     description = "Mpris proxy";
-    after = [ "network.target" "sound.target" ];
-    wantedBy = [ "default.target" ];
+    after = ["network.target" "sound.target"];
+    wantedBy = ["default.target"];
     serviceConfig.ExecStart = "${pkgs.bluez}/bin/mpris-proxy";
   };
-
 
   services.hardware.bolt.enable = true;
   services.printing.enable = true;
@@ -95,7 +93,6 @@
     };
   };
 
-
   # Framework 13 specific changes
   hardware.sensor.iio.enable = true;
   services.fwupd.enable = true;
@@ -106,10 +103,10 @@
     isNormalUser = true;
     description = "Péter Bohner";
     shell = pkgs.zsh;
-    extraGroups = [ "networkmanager" "wheel" "dialout" "networkmanager" ];
+    extraGroups = ["networkmanager" "wheel" "dialout" "networkmanager"];
   };
   home-manager = {
-    extraSpecialArgs = { inherit inputs; };
+    extraSpecialArgs = {inherit inputs;};
     users = {
       "xzvf" = import ./home.nix;
     };
@@ -117,8 +114,8 @@
 
   programs.mtr.enable = true;
   programs.gnupg.agent = {
-     enable = true;
-     enableSSHSupport = true;
+    enable = true;
+    enableSSHSupport = true;
   };
 
   nixpkgs.config.allowUnfree = true;

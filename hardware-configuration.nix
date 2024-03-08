@@ -1,20 +1,24 @@
-{ config, lib, pkgs, modulesPath, ... }:
-
 {
-  imports =
-    [ (modulesPath + "/installer/scan/not-detected.nix")
-    ];
+  config,
+  lib,
+  pkgs,
+  modulesPath,
+  ...
+}: {
+  imports = [
+    (modulesPath + "/installer/scan/not-detected.nix")
+  ];
 
-  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "thunderbolt" "usb_storage" "sd_mod" ];
-  boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-amd" ];
-  boot.extraModulePackages = [ ];
+  boot.initrd.availableKernelModules = ["nvme" "xhci_pci" "thunderbolt" "usb_storage" "sd_mod"];
+  boot.initrd.kernelModules = [];
+  boot.kernelModules = ["kvm-amd"];
+  boot.extraModulePackages = [];
 
-  fileSystems."/" =
-    { device = "/dev/disk/by-uuid/cd4ffaf5-9327-4f9e-92bd-1e8d80c70fca";
-      fsType = "ext4";
-      options = [ "noatime" "discard" ];
-    };
+  fileSystems."/" = {
+    device = "/dev/disk/by-uuid/cd4ffaf5-9327-4f9e-92bd-1e8d80c70fca";
+    fsType = "ext4";
+    options = ["noatime" "discard"];
+  };
 
   boot.initrd.luks.devices."luks-f2821f9a-3082-4fb9-afe4-fc359749b6a8" = {
     device = "/dev/disk/by-uuid/f2821f9a-3082-4fb9-afe4-fc359749b6a8";
@@ -26,19 +30,19 @@
     allowDiscards = true;
   };
 
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/EF4E-A49B";
-      fsType = "vfat";
-      options = [ "noatime" "discard" ];
-    };
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-uuid/EF4E-A49B";
+    fsType = "vfat";
+    options = ["noatime" "discard"];
+  };
 
-  fileSystems."/home" =
-    { device = "/dev/disk/by-uuid/93a6fe6e-9bf7-4ee1-9464-4592cdb529d3";
-      fsType = "ext4";
-      options = [ "noatime" "discard" ];
-    };
+  fileSystems."/home" = {
+    device = "/dev/disk/by-uuid/93a6fe6e-9bf7-4ee1-9464-4592cdb529d3";
+    fsType = "ext4";
+    options = ["noatime" "discard"];
+  };
 
-  swapDevices = [ ];
+  swapDevices = [];
 
   networking.useDHCP = lib.mkDefault true;
   # networking.interfaces.eth0.useDHCP = lib.mkDefault true;

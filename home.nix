@@ -1,6 +1,9 @@
-{ config, pkgs, inputs, ... }:
-
 {
+  config,
+  pkgs,
+  inputs,
+  ...
+}: {
   home.username = "xzvf";
   home.homeDirectory = "/home/xzvf";
   home.stateVersion = "24.05";
@@ -8,7 +11,7 @@
   nixpkgs = {
     config = {
       allowUnfree = true;
-      allowUnfreePredicate = (_: true);
+      allowUnfreePredicate = _: true;
     };
   };
 
@@ -35,24 +38,23 @@
 
   home.file = {
     ".gdbinit".text = ''
-set debuginfod enabled on
-set auto-load safe-path /
-'';
+      set debuginfod enabled on
+      set auto-load safe-path /
+    '';
     ".gnupg/gpg-agent.conf".text = ''
-default-cache-ttl 1000000
-max-cache-ttl 1000000
-'';
+      default-cache-ttl 1000000
+      max-cache-ttl 1000000
+    '';
 
     ".gitconfig".text = ''
-[user]
-	email = peter@bohner.me
-	name = Péter Bohner (xzvf)
-[pull]
-	rebase = true
-[credential]
-	helper = store
-'';
-
+      [user]
+      	email = peter@bohner.me
+      	name = Péter Bohner (xzvf)
+      [pull]
+      	rebase = true
+      [credential]
+      	helper = store
+    '';
   };
   home.sessionVariables = {
     EDITOR = "nvim";
