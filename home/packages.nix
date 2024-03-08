@@ -35,6 +35,7 @@
     tree
 
     # misc
-    (nerdfonts.override { fonts = [ "FiraCode" ]; })
+    nerdfonts
+    fira-code
   ];
 }

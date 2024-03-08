@@ -22,14 +22,16 @@
   programs.kitty = {
     enable = true;
     settings = {
-      font_family = "FiraCode Nerd Font";
+      font_family = "Fira Code";
       font_size = 11;
       enable_audio_bell = "no";
       background_opacity = "0.85";
-      close_on_child_detach = "yes";
+      close_on_child_death = "yes";
     };
   };
   programs.fzf.enable = true;
+
+  fonts.fontconfig.enable = true;
 
   home.file = {
     ".gdbinit".text = ''
