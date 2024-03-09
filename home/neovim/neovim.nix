@@ -49,6 +49,15 @@
           rust = ["rustfmt"];
         };
       };
+      ltex-extra = {
+        enable = true;
+        settings.load_langs = [
+          "en-US"
+          "en-GB"
+          "de-DE"
+          "hu-HU"
+        ];
+      };
       todo-comments.enable = true;
       comment-nvim.enable = true;
       illuminate.enable = true;
@@ -129,6 +138,8 @@
       lsp = {
         enable = true;
         servers = {
+          ltex.enable = true;
+
           nil_ls.enable = true;
 
           ccls.enable = true;
@@ -180,7 +191,10 @@
           };
         };
       };
-      lsp-lines.enable = true;
+      #lsp-lines.enable = true;
+      lspsaga = {
+        enable = true;
+      };
       lsp-format.enable = true;
       luasnip.enable = true;
       cmp-nvim-lsp.enable = true;
@@ -221,14 +235,14 @@
         options.desc = "Save";
       }
       {
-        mode = "n";
-        key = "<C-/>";
+        mode = ["n"];
+        key = "<leader>cc";
         action = "<Plug>(comment_toggle_linewise_current)";
         options.desc = "(Un)comment in Normal Mode";
       }
       {
-        mode = "v";
-        key = "<C-/>";
+        mode = ["v"];
+        key = "<leader>cb";
         action = "<Plug>(comment_toggle_blockwise_visual)";
         options.desc = "(Un)comment in Visual Mode";
       }
@@ -243,6 +257,30 @@
         key = "<leader>ffh";
         action = "<CMD>Telescope find_files hidden=true<CR>";
         options.desc = "Find files, including hidden ones";
+      }
+      {
+        mode = "n";
+        key = "]e";
+        action = "<CMD>Lspsaga diagnostic_jump_next<CR>";
+        options.desc = "Show next diagnostic";
+      }
+      {
+        mode = "n";
+        key = "[e";
+        action = "<CMD>Lspsaga diagnostic_jump_prev<CR>";
+        options.desc = "Show previous diagnostic";
+      }
+      {
+        mode = "n";
+        key = "<leader>e";
+        action = "<CMD>Lspsaga show_line_diagnostics<CR>";
+        options.desc = "Show previous diagnostic";
+      }
+      {
+        mode = "n";
+        key = "<leader>ca";
+        action = "<CMD>Lspsaga code_action<CR>";
+        options.desc = "Code Action";
       }
     ];
   };

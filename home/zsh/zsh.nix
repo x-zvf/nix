@@ -41,6 +41,7 @@
       "v" = "nvim";
       "sv" = "sudo -e";
       "l" = "lsd -lah";
+      "ls" = "lsd";
       "b" = "bat";
       "o" = "xdg-open";
       # Git
@@ -53,6 +54,9 @@
       "gdiff" = "git diff";
       "gstapush" = "git stash push";
       "gstapop" = "git stash pop";
+
+      # Nix
+      "np" = "nix-shell --run zsh -p";
 
       "glances" = "glances --enable-plugin sensors";
       "ssh" = "TERM=xterm-256color ssh";
