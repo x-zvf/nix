@@ -16,6 +16,7 @@
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.kernelParams = [
     "rd.luks.options=discard"
+    "amd_iommu=off" # VP9 video decode bug
   ];
 
   networking.hostName = "rubidium"; # Define your hostname.
@@ -59,7 +60,7 @@
 
   services.locate = {
     enable = true;
-    package = pkgs.mlocate;
+    package = pkgs.plocate;
     localuser = null;
     interval = "hourly";
   };

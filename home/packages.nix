@@ -20,6 +20,7 @@
     nextcloud-client
     rambox
     thunderbird
+    chromium
     vlc
 
     # programming languages
