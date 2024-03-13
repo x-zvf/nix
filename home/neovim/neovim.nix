@@ -34,6 +34,8 @@
       splitright = true;
       tabstop = 4;
       termguicolors = true;
+      spell = true;
+      spelllang = "en_us"; # 'Murican, because programming...
     };
 
     plugins = {
@@ -55,7 +57,7 @@
           "en-US"
           "en-GB"
           "de-DE"
-          "hu-HU"
+          # "hu-HU" -> safly, not supported yet
         ];
       };
       todo-comments.enable = true;
@@ -188,18 +190,23 @@
             path = "[path]";
             luasnip = "[snip]";
             buffer = "[buffer]";
+            spell = "[spell]";
           };
         };
       };
       #lsp-lines.enable = true;
       lspsaga = {
         enable = true;
+        lightbulb.enable = false;
       };
       lsp-format.enable = true;
       luasnip.enable = true;
-      cmp-nvim-lsp.enable = true;
+
       cmp-buffer.enable = true;
       cmp-latex-symbols.enable = true;
+      cmp-nvim-lsp.enable = true;
+      cmp-spell.enable = true;
+
       cmp = {
         enable = true;
         settings = {
@@ -210,6 +217,7 @@
             {name = "path";}
             {name = "latex-symbols";}
             {name = "buffer";}
+            {name = "spell";}
           ];
           mapping = {
             "<C-j>" = "cmp.mapping.scroll_docs(-4)";
