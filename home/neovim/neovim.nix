@@ -23,6 +23,7 @@
     globals.mapleader = " ";
     options = {
       autoindent = true;
+      colorcolumn = [81 101];
       fileencoding = "utf-8";
       foldlevel = 99;
       number = true;
@@ -30,12 +31,12 @@
       scrolloff = 5;
       shiftwidth = 4;
       softtabstop = 4;
+      spell = true;
+      spelllang = "en_us"; # 'Murican, because programming...
       splitbelow = true;
       splitright = true;
       tabstop = 4;
       termguicolors = true;
-      spell = true;
-      spelllang = "en_us"; # 'Murican, because programming...
     };
 
     plugins = {
