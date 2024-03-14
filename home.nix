@@ -30,6 +30,9 @@
       enable_audio_bell = "no";
       background_opacity = "0.85";
       close_on_child_death = "yes";
+      remember_window_size = "no";
+      initial_window_width = "120c";
+      initial_window_height = "35c";
     };
   };
   programs.fzf.enable = true;
