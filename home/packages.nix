@@ -42,15 +42,19 @@
     # cli tools
     bat
     fastfetch
+    file
     gh
     glab
     glances
+    htmlq
+    jq
     lsd
     pferd
     ripgrep
     ripgrep-all
     stow
     tree
+    wl-clipboard
     yt-dlp
 
     # Fonts
