@@ -7,72 +7,29 @@
   home.username = "xzvf";
   home.homeDirectory = "/home/xzvf";
   home.stateVersion = "24.05";
-
-  nixpkgs = {
-    config = {
-      allowUnfree = true;
-      allowUnfreePredicate = _: true;
-    };
+  programs.home-manager.enable = true;
+  nixpkgs.config = {
+    allowUnfree = true;
+    allowUnfreePredicate = _: true;
   };
 
   imports = [
+    ./home/devtools.nix
     ./home/packages.nix
+
     ./home/zsh/zsh.nix
+    ./home/kitty/kitty.nix
     ./home/tmux/tmux.nix
-    ./home/neovim/neovim.nix
   ];
 
-  programs.kitty = {
-    enable = true;
-    settings = {
-      font_family = "Fira Code";
-      font_size = 11;
-      enable_audio_bell = "no";
-      background_opacity = "0.85";
-      close_on_child_death = "yes";
-      remember_window_size = "no";
-      initial_window_width = "120c";
-      initial_window_height = "35c";
-    };
-  };
+  # MISC
   programs.fzf.enable = true;
-
   fonts.fontconfig.enable = true;
+  services.easyeffects.enable = true; # requires dconf
 
-  home.file = {
-    ".gdbinit".text = ''
-      set debuginfod enabled on
-      set auto-load safe-path /
-    '';
-    ".gnupg/gpg-agent.conf".text = ''
-      default-cache-ttl 1000000
-      max-cache-ttl 1000000
-    '';
-
-    ".test".text = ''it be workin'';
-
-    ".gitconfig".text = ''
-      [user]
-      	email = peter@bohner.me
-      	name = Péter Bohner (xzvf)
-      [pull]
-      	rebase = true
-      [credential]
-      	helper = store
-    '';
-  };
   home.sessionVariables = {
     EDITOR = "nvim";
     VISUAL = "nvim";
     BROWSER = "firefox";
   };
-
-  programs.vscode = {
-    enable = true;
-    extensions = with pkgs.vscode-extensions; [
-      dracula-theme.theme-dracula
-    ];
-  };
-
-  programs.home-manager.enable = true;
 }

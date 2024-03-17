@@ -18,6 +18,7 @@
     "rd.luks.options=discard"
     "amd_iommu=off" # VP9 video decode bug
   ];
+  boot.kernel.sysctl."kernel.sysrq" = 1;
 
   networking.hostName = "rubidium"; # Define your hostname.
   networking.networkmanager.enable = true;
