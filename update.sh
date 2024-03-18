@@ -1,9 +1,9 @@
-#!/bin/bin/env bash
+#!/usr/bin/env bash
+set -xe
 
-cd "${BASH_SOURCE[0]}"
-
+cd "$(dirname "$0")"
 nix flake update
-ga ./flake.lock
+git add ./flake.lock
 git commit -m "update flake"
 home-manager --flake '/home/xzvf/nix#xzvf' switch
 sudo nixos-rebuild switch --flake '/home/xzvf/nix#default'
