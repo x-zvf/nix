@@ -13,6 +13,7 @@
 
     homebank
     libreoffice
+    mathematica
     mpv
     nextcloud-client
     rambox

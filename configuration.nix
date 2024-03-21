@@ -104,10 +104,10 @@
   };
 
   programs.mtr.enable = true;
-  programs.gnupg.agent = {
-    enable = true;
-    enableSSHSupport = true;
-  };
+  #programs.gnupg.agent = {
+  #  enable = true;
+  #  enableSSHSupport = true;
+  #};
 
   nixpkgs.config.allowUnfree = true;
   system.stateVersion = "24.05";
