@@ -6,6 +6,7 @@
   home.packages = with pkgs; [
     alacritty
     bitwarden
+    chromium
     easyeffects
 
     # firefox
@@ -17,8 +18,8 @@
     mpv
     nextcloud-client
     rambox
+    signal-desktop
     thunderbird
-    chromium
     vlc
 
     # cli tools
