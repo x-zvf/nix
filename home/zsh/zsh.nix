@@ -56,7 +56,7 @@
       "gstapop" = "git stash pop";
 
       # Nix
-      "np" = "nix-shell --run zsh -p";
+      "np" = "NIXPKGS_ALLOW_UNFREE=1 nix-shell --run zsh -p";
 
       "glances" = "glances --enable-plugin sensors";
       "ssh" = "TERM=xterm-256color ssh";

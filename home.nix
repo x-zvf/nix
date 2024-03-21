@@ -25,7 +25,7 @@
   # MISC
   programs.fzf.enable = true;
   fonts.fontconfig.enable = true;
-  services.easyeffects.enable = true; # requires dconf
+  #services.easyeffects.enable = true; # requires dconf
 
   home.sessionVariables = {
     EDITOR = "nvim";

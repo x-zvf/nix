@@ -10,6 +10,7 @@
       remember_window_size = "no";
       initial_window_width = "120c";
       initial_window_height = "35c";
+      confirm_os_window_close = 0;
     };
   };
 }

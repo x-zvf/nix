@@ -26,6 +26,7 @@
     file
     glances
     lsd
+    paps
     pferd
     tree
     wl-clipboard
@@ -34,5 +35,8 @@
     # Fonts
     nerdfonts
     fira-code
+
+    # nix
+    nvd
   ];
 }

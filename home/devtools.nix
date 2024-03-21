@@ -5,6 +5,7 @@
   home.packages = with pkgs; [
     jetbrains.datagrip
     jetbrains.idea-ultimate
+    sublime-merge
 
     clang
     cmake
