@@ -62,7 +62,7 @@
         ];
       };
       todo-comments.enable = true;
-      comment-nvim.enable = true;
+      comment.enable = true;
       illuminate.enable = true;
       which-key.enable = true;
       gitsigns.enable = true;
@@ -70,7 +70,7 @@
       fugitive.enable = true;
       indent-blankline = {
         enable = true;
-        scope.enabled = true;
+        settings.scope.enabled = true;
       };
       telescope = {
         enable = true;

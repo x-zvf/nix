@@ -70,7 +70,13 @@
 
   services.hardware.bolt.enable = true;
   services.printing.enable = true;
-  services.fprintd.enable = true;
+  #services.fprintd.enable = true;
+  #services.fprintd.package = pkgs.fprintd.overrideAttrs {
+  #  mesonCheckFlags = [
+  #    "--no-suite"
+  #    "fprintd:TestPamFprintd"
+  #  ];
+  #};
 
   sound.enable = true;
   hardware.pulseaudio.enable = false;
