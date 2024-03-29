@@ -21,6 +21,11 @@
   ];
   boot.kernel.sysctl."kernel.sysrq" = 1;
 
+  virtualisation.libvirtd.enable = true;
+  programs.virt-manager.enable = true;
+  virtualisation.spiceUSBRedirection.enable = true;
+  virtualisation.vmware.host.enable = true;
+
   networking.hostName = "rubidium"; # Define your hostname.
   networking.networkmanager.enable = true;
   networking.firewall.enable = false;
