@@ -21,7 +21,7 @@
       providers.wl-copy.enable = true;
     };
     globals.mapleader = " ";
-    options = {
+    opts = {
       autoindent = true;
       colorcolumn = [81 101];
       fileencoding = "utf-8";
