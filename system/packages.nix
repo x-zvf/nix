@@ -16,6 +16,7 @@
     neovim
     rsync
     tmux
+    unzip
     wget
     wireguard-tools
     zsh
