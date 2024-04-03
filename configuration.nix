@@ -25,6 +25,7 @@
   programs.virt-manager.enable = true;
   virtualisation.spiceUSBRedirection.enable = true;
   virtualisation.vmware.host.enable = true;
+  virtualisation.docker.enable = true;
 
   networking.hostName = "rubidium"; # Define your hostname.
   networking.networkmanager.enable = true;
@@ -113,7 +114,7 @@
     description = "Péter Bohner";
     shell = pkgs.zsh;
     ignoreShellProgramCheck = true;
-    extraGroups = ["networkmanager" "wheel" "dialout" "networkmanager"];
+    extraGroups = ["networkmanager" "wheel" "dialout" "networkmanager" "docker"];
   };
 
   programs.mtr.enable = true;

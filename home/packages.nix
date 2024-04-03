@@ -24,6 +24,7 @@
 
     # cli tools
     bat
+    distrobox
     fastfetch
     file
     glances
