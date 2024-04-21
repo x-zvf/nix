@@ -14,6 +14,8 @@
     htop
     iotop
     neovim
+    perf-tools
+    linuxPackages_latest.perf
     rsync
     tmux
     unzip
