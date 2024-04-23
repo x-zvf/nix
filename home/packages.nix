@@ -2,7 +2,9 @@
   config,
   pkgs,
   ...
-}: {
+} @ args: let
+  ipePkg = (import ../custom_packages/ipe.nix) args;
+in {
   home.packages = with pkgs; [
     alacritty
     bitwarden
@@ -48,5 +50,8 @@
     jetbrains.pycharm-professional
     jetbrains.clion
     jetbrains.clion
+
+    # custom
+    ipePkg
   ];
 }
