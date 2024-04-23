@@ -57,6 +57,7 @@
 
       # Nix
       "np" = "NIXPKGS_ALLOW_UNFREE=1 nix-shell --run zsh -p";
+      "nr" = "NIXPKGS_ALLOW_UNFREE=1 nix run --impure";
       "matlab" = "nix run gitlab:doronbehar/nix-matlab";
 
       "glances" = "glances --enable-plugin sensors";
