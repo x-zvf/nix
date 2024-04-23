@@ -14,10 +14,9 @@
 
     homebank
     libreoffice
-    mathematica
     mpv
     nextcloud-client
-    rambox
+    pympress
     signal-desktop
     thunderbird
     vlc
@@ -41,5 +40,13 @@
 
     # nix
     nvd
+
+    # unfree
+    rambox
+    mathematica
+    jetbrains.idea-ultimate
+    jetbrains.pycharm-professional
+    jetbrains.clion
+    jetbrains.clion
   ];
 }
