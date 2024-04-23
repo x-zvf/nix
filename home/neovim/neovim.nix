@@ -14,7 +14,7 @@
     plugins = {
       lualine.enable = true;
     };
-    colorschemes.dracula.enable = true;
+    colorschemes.tokyonight.enable = true;
 
     clipboard = {
       register = "unnamedplus";
@@ -196,10 +196,7 @@
         };
       };
       #lsp-lines.enable = true;
-      lspsaga = {
-        enable = true;
-        lightbulb.enable = false;
-      };
+      trouble.enable = true;
       lsp-format.enable = true;
       luasnip.enable = true;
 
