@@ -41,7 +41,6 @@
       "v" = "nvim";
       "sv" = "sudo -e";
       "l" = "lsd -lah";
-      "ls" = "lsd";
       "b" = "bat";
       "o" = "xdg-open";
       # Git
