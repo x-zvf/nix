@@ -22,6 +22,13 @@
     rust-bin.nightly.latest.default
     alejandra
 
+    insomnia
+
+    jetbrains.idea-ultimate
+    jetbrains.pycharm-professional
+    jetbrains.clion
+    jetbrains.clion
+
     gh
     glab
     htmlq

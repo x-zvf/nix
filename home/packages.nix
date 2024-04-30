@@ -46,11 +46,6 @@ in {
     # unfree
     rambox
     mathematica
-    jetbrains.idea-ultimate
-    jetbrains.pycharm-professional
-    jetbrains.clion
-    jetbrains.clion
-
     # custom
     ipePkg
   ];
