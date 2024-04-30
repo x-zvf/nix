@@ -42,10 +42,10 @@
     plugins = {
       conform-nvim = {
         enable = true;
-        formatOnSave = {
-          timeoutMs = 500;
-          lspFallback = true;
-        };
+        #formatOnSave = {
+        #  timeoutMs = 500;
+        #  lspFallback = true;
+        #};
         formattersByFt = {
           javascript = ["prettier"];
           nix = ["alejandra"];
