@@ -17,7 +17,7 @@
   boot.kernelParams = [
     "rd.luks.options=discard"
     #"amd_iommu=off" # VP9 video decode bug
-    #"amdgpu.sg_display=0"
+    "amdgpu.sg_display=0"
   ];
   boot.kernel.sysctl."kernel.sysrq" = 1;
 
