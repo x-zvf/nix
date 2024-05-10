@@ -21,6 +21,7 @@
     unzip
     wget
     wireguard-tools
+    virtiofsd
     zsh
   ];
 }
