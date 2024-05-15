@@ -2,6 +2,7 @@
 set -xe
 
 cd "$(dirname "$0")"
+sudo echo "Caching sudo"
 nix flake update
 git add ./flake.lock
 git commit -m "update flake"
