@@ -25,6 +25,7 @@ in {
 
     # cli tools
     bat
+    dig
     distrobox
     fastfetch
     file
@@ -32,6 +33,7 @@ in {
     lsd
     paps
     pferd
+    traceroute
     tree
     wl-clipboard
     yt-dlp
