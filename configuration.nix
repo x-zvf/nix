@@ -17,15 +17,15 @@
   boot.kernelParams = [
     "rd.luks.options=discard"
     #"amd_iommu=off" # VP9 video decode bug
-    "amdgpu.sg_display=0"
+    #"amdgpu.sg_display=0"
   ];
   boot.kernel.sysctl."kernel.sysrq" = 1;
 
   virtualisation.libvirtd.enable = true;
   programs.virt-manager.enable = true;
   virtualisation.spiceUSBRedirection.enable = true;
-  virtualisation.vmware.host.enable = true;
-  virtualisation.vmware.host.package = (pkgs.vmware-workstation.overrideAttrs rec{
+  #virtualisation.vmware.host.enable = true;
+  /* virtualisation.vmware.host.package = (pkgs.vmware-workstation.overrideAttrs rec{
     src = pkgs.requireFile {
       name = "VMware-Workstation-Full-17.5.1-23298084.x86_64.bundle";
       hash = "sha256-qmC3zvKoes77z3x6UkLHsJ17kQrL1a/rxe9mF+UMdJY=";
@@ -39,7 +39,7 @@
     in ''
       ${vmware-unpack-env}/bin/vmware-unpack-env -c "sh ${src} --extract unpacked"
     '';
-});
+}); */
   virtualisation.docker.enable = true;
 
   networking.hostName = "rubidium"; # Define your hostname.
