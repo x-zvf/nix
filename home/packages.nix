@@ -7,6 +7,7 @@
 in {
   home.packages = with pkgs; [
     alacritty
+    anki
     bitwarden
     chromium
     easyeffects

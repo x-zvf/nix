@@ -8,6 +8,7 @@
     sublime-merge
 
     clang
+    clang-tools
     cmake
     gnumake
     go

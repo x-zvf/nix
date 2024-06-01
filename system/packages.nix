@@ -13,6 +13,8 @@
     home-manager
     htop
     iotop
+    man-pages
+    man-pages-posix
     neovim
     perf-tools
     linuxPackages_latest.perf

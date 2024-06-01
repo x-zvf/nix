@@ -16,10 +16,18 @@
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.kernelParams = [
     "rd.luks.options=discard"
-    #"amd_iommu=off" # VP9 video decode bug
+    "amd_iommu=off" # VP9 video decode bug - still happening
     #"amdgpu.sg_display=0"
   ];
   boot.kernel.sysctl."kernel.sysrq" = 1;
+
+  documentation.dev.enable = true;
+  documentation.man.generateCaches = true;
+  documentation.man = {
+    man-db.enable = false;
+    mandoc.enable = true;
+  };
+
 
   virtualisation.libvirtd.enable = true;
   programs.virt-manager.enable = true;
