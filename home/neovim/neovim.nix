@@ -143,7 +143,7 @@
         servers = {
           ltex.enable = true;
 
-          nil_ls.enable = true;
+          nil-ls.enable = true;
 
           ccls.enable = true;
           gopls.enable = true;
@@ -161,7 +161,7 @@
 
           html.enable = true;
           jsonls.enable = true;
-          emmet_ls.enable = true;
+          emmet-ls.enable = true;
           elmls.enable = true;
           htmx.enable = true;
           cssls.enable = true;
