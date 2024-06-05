@@ -25,5 +25,7 @@
     wireguard-tools
     virtiofsd
     zsh
+
+    linuxPackages_latest.systemtap
   ];
 }
