@@ -131,17 +131,17 @@
   hardware.sensor.iio.enable = true;
   services.fwupd.enable = true;
   services.power-profiles-daemon.enable = true;
-#  systemd.services.disableInterrupt = {
-#    wantedBy = [ "multi-user.target" ];
-#    after = [ "network.target" ];
-#    description = "Disable GPE 10 interrupt";
-#    serviceConfig = {
-#      Type = "oneshot";
-#      User = "root";
-#      ExecStart = ''/bin/sh 'echo "disable" > /sys/firmware/acpi/interrupts/gpe10' '';
-#      RemainAfterExit = true;
-#    };
-#  };
+  systemd.services.disableInterrupt = {
+    wantedBy = [ "multi-user.target" ];
+    after = [ "network.target" ];
+    description = "Disable GPE 10 interrupt";
+    serviceConfig = {
+      Type = "oneshot";
+      User = "root";
+      ExecStart = ''/bin/sh -c 'echo "enable" > /sys/firmware/acpi/interrupts/gpe10; echo "disable" > /sys/firmware/acpi/interrupts/gpe10' '';
+      RemainAfterExit = true;
+    };
+  };
 
   #programs.zsh.enable = true;
   users.users.xzvf = {
