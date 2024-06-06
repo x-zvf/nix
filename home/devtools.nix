@@ -13,7 +13,6 @@
     gnumake
     go
     ghc
-    jdk21
     swiProlog
     python313Full
     zig

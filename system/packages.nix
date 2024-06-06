@@ -13,6 +13,7 @@
     home-manager
     htop
     iotop
+    jdk22
     man-pages
     man-pages-posix
     neovim
