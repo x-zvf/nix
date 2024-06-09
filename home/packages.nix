@@ -23,6 +23,7 @@ in {
     signal-desktop
     thunderbird
     vlc
+    texliveFull
 
     # cli tools
     bat

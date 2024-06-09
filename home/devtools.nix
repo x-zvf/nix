@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   imports = [
-    ./neovim/neovim.nix
+    #./neovim/neovim.nix
   ];
   home.packages = with pkgs; [
     jetbrains.datagrip

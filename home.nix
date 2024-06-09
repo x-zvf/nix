@@ -16,7 +16,6 @@
   imports = [
     ./home/devtools.nix
     ./home/packages.nix
-
     ./home/zsh/zsh.nix
     ./home/kitty/kitty.nix
     ./home/tmux/tmux.nix

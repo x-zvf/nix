@@ -31,6 +31,7 @@
 
   virtualisation.libvirtd.enable = true;
   programs.virt-manager.enable = true;
+  programs.java.enable = true;
   virtualisation.spiceUSBRedirection.enable = true;
   #virtualisation.vmware.host.enable = true;
   /* virtualisation.vmware.host.package = (pkgs.vmware-workstation.overrideAttrs rec{
