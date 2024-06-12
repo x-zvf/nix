@@ -9,7 +9,9 @@
 
     clang
     clang-tools
+    clojure
     cmake
+    emacs
     gnumake
     go
     ghc
@@ -35,6 +37,9 @@
     jq
     ripgrep
     ripgrep-all
+
+
+    libtool
   ];
   programs.vscode = {
     enable = true;
