@@ -4,6 +4,7 @@
   ...
 } @ args: let
   ipePkg = (import ../custom_packages/ipe.nix) args;
+  input-leapPkg = (import ../custom_packages/input-leap.nix) args;
 in {
   home.packages = with pkgs; [
     alacritty
@@ -52,5 +53,6 @@ in {
     mathematica
     # custom
     ipePkg
+    input-leapPkg
   ];
 }
