@@ -19,6 +19,7 @@
     ./home/zsh/zsh.nix
     ./home/kitty/kitty.nix
     ./home/tmux/tmux.nix
+#    ./home/sway/sway.nix
   ];
 
   # MISC

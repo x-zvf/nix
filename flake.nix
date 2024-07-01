@@ -13,19 +13,19 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     flake-utils.url = "github:numtide/flake-utils";
-    rust-overlay = {
-      url = "github:oxalica/rust-overlay";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        flake-utils.follows = "flake-utils";
-      };
-    };
+#    rust-overlay = {
+#      url = "github:oxalica/rust-overlay";
+#      inputs = {
+#        nixpkgs.follows = "nixpkgs";
+#        flake-utils.follows = "flake-utils";
+#      };
+#    };
   };
 
   outputs = {
     self,
     nixpkgs,
-    rust-overlay,
+    #rust-overlay,
     ...
   } @ inputs: let
     system = "x86_64-linux";
@@ -41,12 +41,12 @@
       inherit pkgs;
       extraSpecialArgs = {
         inherit inputs;
-        inherit rust-overlay;
+        #inherit rust-overlay;
       };
       modules = [
         ({pkgs, ...}: {
-          nixpkgs.overlays = [rust-overlay.overlays.default];
-          home.packages = [pkgs.rust-bin.nightly.latest.default];
+#          nixpkgs.overlays = [rust-overlay.overlays.default];
+#          home.packages = [pkgs.rust-bin.nightly.latest.default];
         })
         ./home.nix
       ];

@@ -21,7 +21,9 @@
     shellcheck
     nodejs_22
     corepack_22
-    rust-bin.nightly.latest.default
+    #rust-bin.nightly.latest.default
+    rustc
+    cargo
     alejandra
 
     insomnia
