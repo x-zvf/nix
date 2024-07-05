@@ -3,8 +3,8 @@
     sway
     swaybg
     swayidle
-    swaynag
-    rofi
+    shikane
+    wofi
     blueman
     wdisplays
     sway-contrib.grimshot
@@ -16,13 +16,16 @@
   programs.swaylock = {
     enable = true;
   };
+  home.file = {
+    shikaneconf = {
+    	source = ./shikane.toml;
+	target = ".config/shikane/config.toml";
+    };
+  };
 
    programs.waybar = {
     enable = true;
-    systemd = {
-      enable = true;
-    };
-    style = ./waybarstyle.css;
+    #style = ./waybarstyle.css;
     settings = {
       mainBar = {
         layer = "top";
@@ -49,7 +52,7 @@
         };
 
         "clock" = {
-          interval = 1;
+          interval = "1R";
           format = "{:%H:%M}";
           format-alt = "{:%d.%m.%Y %H:%M:%S}";
         };
@@ -96,16 +99,17 @@
   wayland.windowManager.sway =
     let mod = "Mod4"; in {
     enable = true;
-    systemd.enable = true;
 
     config = rec {
       modifier = mod;
       terminal = "kitty"; 
       fonts = { names = [ "Fira Code" ];};
-      output.*.bg = "${../res/wallpaper01.png} fill";
+      output."*".bg = "${../../res/wallpaper01.jpg} fill";
       input = {
-        xkb_options = "caps:escape,compose:ralt";
-        xkb_layout = "uk";
+        "*" = {
+          xkb_options = "caps:escape,escape:caps,compose:ralt";
+          xkb_layout = "gb";
+        };
       };
       keybindings = {
         "${mod}+Return" = "exec kitty";
@@ -170,15 +174,16 @@
           "exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'";
 
         "${mod}+r" = "mode resize";
-
-
       };
 
       startup = [
         # Launch Firefox on start
+	{command = "shikane";}
+	{command = "waybar";}
         {command = "firefox";}
+        {command = "thunderbird";}
         {command = "rambox";}
-	      {command = "signal-desktop";}
+	{command = "signal-desktop";}
         {command = "nextcloud";}
         {command = "blueman-applet";}
         {command = "nm-applet";}

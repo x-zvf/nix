@@ -1,0 +1,30 @@
+[[profile]]
+name = "docked"
+
+[[profile.output]]
+enable = true
+search = ["m=0x0BCA", "s=", "v=BOE"]
+mode = "2256x1504@59.999Hz"
+position = "1128,2160"
+scale = 1.0
+transform = "normal"
+adaptive_sync = false
+
+[[profile.output]]
+enable = true
+search = ["m=DELL 2407WFP", "s=UY5457390H2S ", "v=Dell Inc."]
+mode = "1920x1200@59.95Hz"
+position = "4968,960"
+scale = 1.0
+transform = "normal"
+adaptive_sync = false
+
+[[profile.output]]
+enable = true
+search = ["m=BenQ EW3280U", "s=A1L03067019", "v=BNQ"]
+mode = "3840x2160@59.997Hz"
+position = "1128,0"
+scale = 1.0
+transform = "normal"
+adaptive_sync = false
+

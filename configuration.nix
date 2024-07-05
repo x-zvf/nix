@@ -67,6 +67,7 @@
         variant = "";
       };
     };
+    displayManager.sessionPackages = [ pkgs.sway ];
     displayManager.sddm = {
       enable = true;
       wayland.enable = true;
