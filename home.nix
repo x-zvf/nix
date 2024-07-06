@@ -39,5 +39,6 @@
     EDITOR = "nvim";
     VISUAL = "nvim";
     BROWSER = "firefox";
+    XDG_CURRENT_DESKTOP = "KDE";
   };
 }

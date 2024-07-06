@@ -28,3 +28,14 @@ scale = 1.0
 transform = "normal"
 adaptive_sync = false
 
+[[profile]]
+name = "undocked"
+
+[[profile.output]]
+enable = true
+search = ["m=0x0BCA", "s=", "v=BOE"]
+mode = "2256x1504@59.999Hz"
+position = "0,0"
+scale = 1.0
+transform = "normal"
+adaptive_sync = false

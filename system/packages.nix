@@ -13,6 +13,7 @@
     home-manager
     htop
     iotop
+    killall
     man-pages
     man-pages-posix
     neovim
@@ -25,6 +26,7 @@
     wireguard-tools
     virtiofsd
     zsh
+
 
     linuxPackages_latest.systemtap
 

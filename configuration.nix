@@ -121,6 +121,7 @@
 
   services.printing.enable = true;
   security = {
+    pam.services.swaylock = {};
     rtkit.enable = true;
     polkit.enable = true;
   };

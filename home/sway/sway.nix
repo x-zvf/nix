@@ -9,6 +9,7 @@
     wdisplays
     sway-contrib.grimshot
     networkmanagerapplet
+    pasystray
     lxqt.lxqt-policykit
     xfce.xfce4-notifyd
   ];
@@ -30,10 +31,10 @@
       mainBar = {
         layer = "top";
         position = "top";
-        height = 30;
-        spacing = 20;
+        height = 25;
+        spacing = 10;
         modules-left = [ "sway/workspaces" ];
-        modules-right = [ "disk" "pulseaudio" "cpu" "network#eth" "network#wireless" "battery" "temperature" "clock" "tray" ];
+        modules-right = [ "pulseaudio" "cpu" "network#eth" "network#wireless" "battery" "temperature" "clock" "tray" ];
 
         "tray" = {
           spacing = 10;
@@ -52,44 +53,34 @@
         };
 
         "clock" = {
-          interval = "1R";
-          format = "{:%H:%M}";
+          interval = 1;
+          format =  "{:%Y-%m-%d %H:%M:%S}";
           format-alt = "{:%d.%m.%Y %H:%M:%S}";
         };
 
         "battery" = {
           format = "BAT: {capacity}%";
-          bat = "BAT0";
-          full-at = "94";
+          bat = "BAT1";
         };
 
         "temperature" = {
-          thermal-zone = 0;
+          thermal-zone = 3;
           critical-threshold = 70;
           format = "{temperatureC}°C";
           interval = 2;
-          hwmon-path-abs = "/sys/devices/platform/coretemp.0/hwmon";
-          input-filename = "temp1_input";
         };
 
         "network#eth" = {
           interval = 5;
-          interface = "enp12s0";
+          interface = "eth0";
           format = "{ipaddr}";
           format-disconnected = "disconnected";
         };
         "network#wireless" = {
           interval = 5;
-          interface = "wlp82s0";
+          interface = "wlp1s0";
           format = "{ipaddr}@{essid} ({signalStrength}%)";
           format-disconnected = "disconnected";
-        };
-
-        "disk" = {
-          interval = 30;
-          path = "/";
-          tooltip-format = "\"{path}\": {used}/{total} ({percentage_used}%)";
-          format = "\"{path}\": {percentage_used}%";
         };
       };
     };
@@ -105,16 +96,28 @@
       terminal = "kitty"; 
       fonts = { names = [ "Fira Code" ];};
       output."*".bg = "${../../res/wallpaper01.jpg} fill";
+
+      bars = [];
       input = {
         "*" = {
           xkb_options = "caps:escape,escape:caps,compose:ralt";
           xkb_layout = "gb";
+	  xkb_numlock = "enabled";
+	  xkb_capslock = "disabled";
+	  accel_profile = "flat";
+	  tap = "enabled";
         };
+	"Logitech_Wireless_Mouse_MX_Master_3" = {
+	};
+	"2362:628:PIXA3854:00_093A:0274_Touchpad" = {
+	  natural_scroll = "enabled";
+	};
       };
       keybindings = {
         "${mod}+Return" = "exec kitty";
         "${mod}+Shift+q" = "kill";
-        "${mod}+d" = "exec ${pkgs.rofi}/bin/rofi -show combi -config ~/.config/rofi/config.rasi";
+        "${mod}+d" = "exec ${pkgs.rofi}/bin/rofi -show combi";
+	"${mod}+x" = "exec --no-startup-id swaylock -i ${../../res/wallpaper01.jpg} --ignore-empty-password --show-failed-attempts --daemonize";
 
         "${mod}+h" = "focus left";
         "${mod}+j" = "focus down";
@@ -174,19 +177,27 @@
           "exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'";
 
         "${mod}+r" = "mode resize";
-      };
 
+	 "XF86MonBrightnessDown" = "exec light -U 10";
+	 "XF86MonBrightnessUp" = "exec light -A 10";
+	 "XF86AudioRaiseVolume" = "exec pactl set-sink-volume @DEFAULT_SINK@ +1%";
+	 "XF86AudioLowerVolume" = "exec pactl set-sink-volume @DEFAULT_SINK@ -1%";
+	 "XF86AudioMute" = "exec pactl set-sink-mute @DEFAULT_SINK@ toggle";
+
+      };
       startup = [
         # Launch Firefox on start
-	{command = "shikane";}
-	{command = "waybar";}
+	{command = "pkill shikane ; shikane"; always = true;}
+	{command = "pkill waybar ; waybar"; always = true;}
+	{command = "pkill pasystray; pasystray"; always = true;}
+        {command = "pkill blueman-applet; blueman-applet"; always = true;}
+        {command = "pkill nm-applet; nm-applet"; always = true;}
+	{command = "kwalletd";}
         {command = "firefox";}
         {command = "thunderbird";}
         {command = "rambox";}
 	{command = "signal-desktop";}
         {command = "nextcloud";}
-        {command = "blueman-applet";}
-        {command = "nm-applet";}
       ];
     };
   };
