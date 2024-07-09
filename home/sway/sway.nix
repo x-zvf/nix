@@ -187,17 +187,17 @@
       };
       startup = [
         # Launch Firefox on start
-	{command = "pkill shikane ; shikane"; always = true;}
-	{command = "pkill waybar ; waybar"; always = true;}
-	{command = "pkill pasystray; pasystray"; always = true;}
-        {command = "pkill blueman-applet; blueman-applet"; always = true;}
-        {command = "pkill nm-applet; nm-applet"; always = true;}
-	{command = "kwalletd";}
-        {command = "firefox";}
-        {command = "thunderbird";}
-        {command = "rambox";}
-	{command = "signal-desktop";}
-        {command = "nextcloud";}
+	#{command = "pkill shikane ; shikane"; always = true;}
+	#{command = "pkill waybar ; waybar"; always = true;}
+	#{command = "pkill pasystray; pasystray"; always = true;}
+        #{command = "pkill blueman-applet; blueman-applet"; always = true;}
+        #{command = "pkill nm-applet; nm-applet"; always = true;}
+	#{command = "kwalletd";}
+        #{command = "firefox";}
+        #{command = "thunderbird";}
+        #{command = "rambox";}
+	#{command = "signal-desktop";}
+        #{command = "nextcloud";}
       ];
     };
   };
