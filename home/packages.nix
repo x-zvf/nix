@@ -9,7 +9,7 @@ in {
   home.packages = with pkgs; [
     alacritty
     anki
-    bitwarden
+    #bitwarden-desktop
     chromium
     easyeffects
 
