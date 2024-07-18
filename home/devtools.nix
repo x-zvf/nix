@@ -39,6 +39,7 @@
     jq
     ripgrep
     ripgrep-all
+    zip
 
 
     libtool
