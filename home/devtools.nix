@@ -68,6 +68,8 @@
       	rebase = true
       [credential]
       	helper = store
+      [init]
+        defaultBranch = master
     '';
   };
 }
