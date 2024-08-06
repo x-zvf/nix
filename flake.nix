@@ -3,16 +3,17 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    #hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
 
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixvim = {
-      url = "github:nix-community/nixvim";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    flake-utils.url = "github:numtide/flake-utils";
+    #nixvim = {
+    #  url = "github:nix-community/nixvim";
+    #  inputs.nixpkgs.follows = "nixpkgs";
+    #};
+    #flake-utils.url = "github:numtide/flake-utils";
 #    rust-overlay = {
 #      url = "github:oxalica/rust-overlay";
 #      inputs = {

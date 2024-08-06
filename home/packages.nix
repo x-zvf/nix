@@ -53,6 +53,6 @@ in {
     mathematica
     # custom
     ipePkg
-    input-leapPkg
+    #input-leapPkg
   ];
 }

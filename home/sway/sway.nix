@@ -185,7 +185,7 @@
 	 "XF86AudioMute" = "exec pactl set-sink-mute @DEFAULT_SINK@ toggle";
 
       };
-      startup = [
+      #startup = [
         # Launch Firefox on start
 	#{command = "pkill shikane ; shikane"; always = true;}
 	#{command = "pkill waybar ; waybar"; always = true;}
@@ -198,7 +198,7 @@
         #{command = "rambox";}
 	#{command = "signal-desktop";}
         #{command = "nextcloud";}
-      ];
+      #];
     };
   };
 
