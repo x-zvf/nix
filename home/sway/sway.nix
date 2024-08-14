@@ -1,17 +1,17 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
-    sway
-    swaybg
-    swayidle
-    shikane
-    wofi
-    blueman
-    wdisplays
-    sway-contrib.grimshot
-    networkmanagerapplet
-    pasystray
-    lxqt.lxqt-policykit
-    xfce.xfce4-notifyd
+    #sway
+    #swaybg
+    #swayidle
+    #shikane
+    #wofi
+    #blueman
+    #wdisplays
+    #sway-contrib.grimshot
+    #networkmanagerapplet
+    #pasystray
+    #lxqt.lxqt-policykit
+    #xfce.xfce4-notifyd
   ];
 
   programs.swaylock = {

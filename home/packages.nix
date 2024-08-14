@@ -40,6 +40,8 @@ in {
     tree
     wl-clipboard
     yt-dlp
+    xxd
+    hexdump
 
     # Fonts
     nerdfonts

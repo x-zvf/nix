@@ -53,6 +53,10 @@
   services.avahi.enable = true;
   services.avahi.nssmdns4 = true;
   services.resolved.enable = true;
+  services.udev.packages = [ 
+    pkgs.platformio-core
+    pkgs.openocd
+  ];
 
   time.timeZone = "Europe/Berlin";
   console.keyMap = "uk";
