@@ -22,6 +22,7 @@
     rsync
     tmux
     unzip
+    p7zip
     wget
     wireguard-tools
     wl-clipboard
