@@ -45,6 +45,7 @@
     libvirtd.enable = true;
     spiceUSBRedirection.enable = true;
     docker.enable = true;
+    waydroid.enable = true;
   };
 
   networking.hostName = "rubidium"; # Define your hostname.

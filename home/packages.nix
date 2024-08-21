@@ -38,7 +38,6 @@ in {
     pferd
     traceroute
     tree
-    wl-clipboard
     yt-dlp
     xxd
     hexdump
