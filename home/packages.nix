@@ -25,6 +25,7 @@ in {
     thunderbird
     vlc
     texliveFull
+    yakuake
 
     # cli tools
     bat
