@@ -19,6 +19,7 @@ in {
     homebank
     libreoffice
     mpv
+    qalculate-qt
     nextcloud-client
     pympress
     signal-desktop
