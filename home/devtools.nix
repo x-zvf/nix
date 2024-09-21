@@ -33,6 +33,7 @@
     jetbrains.clion
     jetbrains.clion
 
+    delta
     gh
     glab
     htmlq
@@ -40,7 +41,6 @@
     ripgrep
     ripgrep-all
     zip
-
 
     libtool
   ];
@@ -61,9 +61,16 @@
       max-cache-ttl 1000000
     '';
     ".gitconfig".text = ''
+      [commit]
+      	gpgsign = false
+      [core]
+      	pager = delta
       [user]
       	email = peter@bohner.me
       	name = Péter Bohner (xzvf)
+      [push]
+      	autoSetupRemote = true
+      	default = current
       [pull]
       	rebase = true
       [credential]
