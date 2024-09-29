@@ -11,6 +11,7 @@
     clang-tools
     clojure
     cmake
+    devdocs-desktop
     emacs
     gnumake
     go

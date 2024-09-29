@@ -23,6 +23,10 @@ in {
     nextcloud-client
     pympress
     signal-desktop
+    tor-browser
+    gimp
+    krita
+    blender
     thunderbird
     vlc
     texliveFull
@@ -34,6 +38,7 @@ in {
     distrobox
     fastfetch
     file
+    fd
     glances
     lsd
     paps
