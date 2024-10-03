@@ -46,6 +46,13 @@
     spiceUSBRedirection.enable = true;
     docker.enable = true;
     waydroid.enable = true;
+    vmVariant = { 
+      virtualisation = {
+        qemu.options = ["-device virtio-vga"];
+        memorySize = 8192;
+        cores = 4;
+      };
+    };
   };
 
   networking.hostName = "rubidium"; # Define your hostname.
@@ -160,6 +167,7 @@
 
   users.users.xzvf = {
     isNormalUser = true;
+    initialPassword = "changeme";
     description = "Péter Bohner";
     shell = pkgs.zsh;
     ignoreShellProgramCheck = true;
