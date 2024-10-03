@@ -27,6 +27,7 @@
     self,
     nixpkgs,
     #rust-overlay,
+    home-manager,
     ...
   } @ inputs: let
     system = "x86_64-linux";
@@ -36,20 +37,11 @@
       specialArgs = {inherit inputs;};
       modules = [
         ./configuration.nix
-      ];
-    };
-    homeConfigurations.xzvf = inputs.home-manager.lib.homeManagerConfiguration {
-      inherit pkgs;
-      extraSpecialArgs = {
-        inherit inputs;
-        #inherit rust-overlay;
-      };
-      modules = [
-        ({pkgs, ...}: {
-#          nixpkgs.overlays = [rust-overlay.overlays.default];
-#          home.packages = [pkgs.rust-bin.nightly.latest.default];
-        })
-        ./home.nix
+        home-manager.nixosModules.home-manager {
+            home-manager.users.xzvf = import ./home.nix;
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+        }
       ];
     };
     formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
