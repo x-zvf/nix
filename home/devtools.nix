@@ -6,7 +6,9 @@
     jetbrains.datagrip
     jetbrains.idea-ultimate
     sublime-merge
+    ghidra
 
+    binwalk
     clang
     clang-tools
     clojure
@@ -22,6 +24,8 @@
     shellcheck
     nodejs_22
     corepack_22
+    sequoia
+    openssl
     #rust-bin.nightly.latest.default
     rustc
     cargo
