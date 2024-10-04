@@ -18,7 +18,7 @@
     gnumake
     go
     ghc
-    swiProlog
+    swi-prolog
     python313Full
     zig
     shellcheck

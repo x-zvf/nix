@@ -2,9 +2,8 @@
 set -xe
 
 cd "$(dirname "$0")"
-sudo echo "Caching sudo"
 nix flake update
-home-manager --flake '/home/xzvf/nix#xzvf' switch
-sudo nixos-rebuild switch --flake '/home/xzvf/nix#default'
+#home-manager --flake '/home/xzvf/nix#xzvf' switch
+sudo nixos-rebuild --flake '/home/xzvf/nix#default' switch
 git add ./flake.lock
 git commit -m "update flake"
