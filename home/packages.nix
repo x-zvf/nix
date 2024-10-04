@@ -58,7 +58,6 @@ in {
 
     # unfree
     rambox
-    mathematica
     # custom
     ipePkg
     #input-leapPkg
