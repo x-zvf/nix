@@ -25,7 +25,7 @@
   # MISC
   programs.fzf.enable = true;
   fonts.fontconfig.enable = true;
-  #services.easyeffects.enable = true; # requires dconf
+  services.easyeffects.enable = true; # requires dconf
   programs.obs-studio = {
     enable = true;
     plugins = with pkgs.obs-studio-plugins; [
