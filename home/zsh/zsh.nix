@@ -26,6 +26,11 @@
       s() {
           nohup $@ </dev/null >/dev/null 2>&1 &
       }
+      gucp() {
+        git add -u
+          git commit -m "$1"
+          git push
+      }
       # proper up-arrow searching
       autoload -Uz history-search-end
       zle -N history-beginning-search-backward-end history-search-end
