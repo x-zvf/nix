@@ -45,7 +45,8 @@
     shellAliases = {
       "v" = "nvim";
       "sv" = "sudo -e";
-      "l" = "lsd -lah";
+      "l" = "lsd -lh";
+      "la" = "lsd -lah";
       "b" = "bat";
       "o" = "xdg-open";
       # Git
