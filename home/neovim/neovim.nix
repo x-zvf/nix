@@ -19,7 +19,7 @@
       plenary-nvim #required by telescope
       telescope-nvim
       telescope-ui-select-nvim
-      telescope-fzf-writer-nvim
+      telescope-fzf-native-nvim
 
       lazydev-nvim
       luvit-meta
@@ -29,12 +29,15 @@
       conform-nvim
       nvim-lspconfig
       cmp-nvim-lsp
+      cmp-spell
       fidget-nvim
       luasnip
       cmp_luasnip
       nvim-cmp
       cmp-path
       todo-comments-nvim
+
+      kanagawa-nvim
     ];
     extraLuaConfig = lib.fileContents ./init.lua;
   };

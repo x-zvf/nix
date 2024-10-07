@@ -35,6 +35,7 @@
     typescript-language-server
     tailwindcss
     tailwindcss-language-server
+    emmet-language-server
 
     #go
     go

@@ -8,25 +8,26 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.signcolumn = "yes"
 vim.opt.updatetime = 250
-vim.opt.timeoutlen = 500
+vim.opt.timeoutlen = 750
 vim.opt.splitright = true
 vim.opt.splitbelow = true
 vim.opt.list = true
 vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
-vim.opt.inccommand = "split"
 vim.opt.scrolloff = 5
+vim.opt.spell = true
+vim.opt.spelllang = { "en", "de", "hu" }
 
-vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
-vim.api.nvim_create_autocmd("TextYankPost", {
-	desc = "Highlight when yanking (copying) text",
-	group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
-	callback = function()
-		vim.highlight.on_yank()
-	end,
-})
+-- we are using vim-sleuth so these are only the fallback value
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.expandtab = true
 
+-- keybinds
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
+vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
+
 vim.keymap.set("n", "<leader>p", '"+p')
 vim.keymap.set("v", "<leader>y", '"+y')
 
@@ -37,15 +38,21 @@ vim.keymap.set("n", "<leader>wk", "<C-w><C-k>", { desc = "[W]indow focus up" })
 vim.keymap.set("n", "<leader>ws", "<CMD>split<CR>", { desc = "[W]indow split horizontal" })
 vim.keymap.set("n", "<leader>wv", "<CMD>vsplit<CR>", { desc = "[W]indow split vertical" })
 
-require("gitsigns").setup()
+-- telescope: navigation
 require("telescope").setup({
 	extensions = {
 		["ui-select"] = {
 			require("telescope.themes").get_dropdown(),
 		},
+		["fzf"] = {
+			fuzzy = true,
+			override_generic_sorter = true,
+			override_file_sorter = true,
+			case_mode = "smart_case",
+		},
 	},
 })
--- require('telescope').load_extension('fzf')
+require("telescope").load_extension("fzf")
 require("telescope").load_extension("ui-select")
 
 local builtin = require("telescope.builtin")
@@ -74,7 +81,20 @@ vim.keymap.set("n", "<leader>s/", function()
 	})
 end, { desc = "[S]earch [/] in Open Files" })
 
+-- formatting
+require("conform").setup({
+	formatters_by_ft = {
+		lua = { "stylua" },
+		python = { "isort", "black" },
+		javascript = { "prettierd" },
+		nix = { "alejandra" },
+		rust = { "rustfmt" },
+		go = { "gofmt" },
+	},
+})
+
 local autoformat = true
+
 vim.keymap.set("n", "<leader>fe", function()
 	autoformat = true
 end, { desc = "[F]ormat on Save [E]nable" })
@@ -91,20 +111,11 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 	end,
 })
 
-require("conform").setup({
-
-	formatters_by_ft = {
-		lua = { "stylua" },
-		python = { "isort", "black" },
-		javascript = { "prettierd" },
-		nix = { "alejandra" },
-	},
-})
-
 vim.keymap.set("n", "<leader>fb", function()
 	require("conform").format({ async = true, lsp_fallback = true })
 end, { desc = "[F]ormat [B]uffer" })
 
+-- lsp
 vim.api.nvim_create_autocmd("LspAttach", {
 	group = vim.api.nvim_create_augroup("kickstart-lsp-attach", { clear = true }),
 	callback = function(event)
@@ -112,13 +123,13 @@ vim.api.nvim_create_autocmd("LspAttach", {
 			vim.keymap.set("n", keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
 		end
 
-		map("gd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
+		map("gd", builtin.lsp_definitions, "[G]oto [D]efinition")
 		map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
-		map("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
-		map("gI", require("telescope.builtin").lsp_implementations, "[G]oto [I]mplementation")
-		map("<leader>D", require("telescope.builtin").lsp_type_definitions, "Type [D]efinition")
-		map("<leader>ds", require("telescope.builtin").lsp_document_symbols, "[D]ocument [S]ymbols")
-		map("<leader>ws", require("telescope.builtin").lsp_dynamic_workspace_symbols, "[W]orkspace [S]ymbols")
+		map("gr", builtin.lsp_references, "[G]oto [R]eferences")
+		map("gI", builtin.lsp_implementations, "[G]oto [I]mplementation")
+		map("<leader>D", builtin.lsp_type_definitions, "Type [D]efinition")
+		map("<leader>ds", builtin.lsp_document_symbols, "[D]ocument [S]ymbols")
+		map("<leader>ws", builtin.lsp_dynamic_workspace_symbols, "[W]orkspace [S]ymbols")
 		map("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
 		map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
 
@@ -160,7 +171,7 @@ local servers = {
 	pyright = {},
 	rust_analyzer = {},
 	ts_ls = {},
-
+	emmet_language_server = {},
 	lua_ls = {
 		settings = {
 			Lua = {
@@ -185,6 +196,8 @@ require("lazydev").setup({
 		{ path = "luvit-meta/library", words = { "vim%.uv" } },
 	},
 })
+
+-- cmp
 local cmp = require("cmp")
 local luasnip = require("luasnip")
 luasnip.config.setup({})
@@ -196,9 +209,6 @@ cmp.setup({
 	},
 	completion = { completeopt = "menu,menuone,noinsert" },
 
-	-- For an understanding of why these mappings were
-	-- chosen, you will need to read `:help ins-completion`
-	--
 	-- No, but seriously. Please read `:help ins-completion`, it is really good!
 	mapping = cmp.mapping.preset.insert({
 		-- Select the [n]ext item
@@ -232,9 +242,6 @@ cmp.setup({
 				luasnip.jump(-1)
 			end
 		end, { "i", "s" }),
-
-		-- For more advanced Luasnip keymaps (e.g. selecting choice nodes, expansion) see:
-		--    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
 	}),
 	sources = {
 		{
@@ -245,5 +252,18 @@ cmp.setup({
 		{ name = "nvim_lsp" },
 		{ name = "luasnip" },
 		{ name = "path" },
+		{ name = "spell" },
 	},
+})
+
+-- misc plugins
+require("kanagawa").load("dragon") -- theme
+require("gitsigns").setup()
+
+vim.api.nvim_create_autocmd("TextYankPost", {
+	desc = "Highlight when yanking (copying) text",
+	group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
+	callback = function()
+		vim.highlight.on_yank()
+	end,
 })
