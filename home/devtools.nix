@@ -5,38 +5,62 @@
   home.packages = with pkgs; [
     jetbrains.datagrip
     jetbrains.idea-ultimate
+    jetbrains.pycharm-professional
+    jetbrains.clion
+    insomnia
     sublime-merge
     ghidra
+    emacs
+    devdocs-desktop
+
+    sequoia
+    openssl
 
     binwalk
     clang
     clang-tools
+    gnumake
     clojure
     cmake
-    devdocs-desktop
-    emacs
-    gnumake
-    go
     ghc
     swi-prolog
-    python313Full
     zig
     shellcheck
+
+    #js
     nodejs_22
     corepack_22
-    sequoia
-    openssl
+    prettierd
+    typescript
+    typescript-language-server
+    tailwindcss
+    tailwindcss-language-server
+
+    #go
+    go
+    gopls
+
+    #rust
     #rust-bin.nightly.latest.default
     rustc
+    rustfmt
     cargo
+
+    #nix
     alejandra
+    deadnix
+    statix
+    nil
 
-    insomnia
+    #python
+    python313Full
+    black
+    isort
+    pyright
 
-    jetbrains.idea-ultimate
-    jetbrains.pycharm-professional
-    jetbrains.clion
-    jetbrains.clion
+    #lua
+    lua-language-server
+    stylua
 
     delta
     gh
