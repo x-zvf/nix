@@ -1,12 +1,8 @@
 {
   pkgs,
-  inputs,
   lib,
   ...
 }: {
-  imports = [
-    #inputs.nixvim.homeManagerModules.nixvim
-  ];
   programs.neovim = {
     enable = true;
     viAlias = true;
