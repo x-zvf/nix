@@ -57,7 +57,9 @@
       # Nix
       "np" = "NIXPKGS_ALLOW_UNFREE=1 nix-shell --run zsh -p";
       "nr" = "NIXPKGS_ALLOW_UNFREE=1 nix run --impure";
+      "snr" = "sudo nixos-rebuild --flake '/home/xzvf/nix#default'";
       "matlab" = "nix run gitlab:doronbehar/nix-matlab";
+      "mathematica" = "NIXPKGS_ALLOW_UNFREE=1 nix-shell -p mathematica --run wolframnb";
 
       "glances" = "glances --enable-plugin sensors";
       "ssh" = "TERM=xterm-256color ssh";
