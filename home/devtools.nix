@@ -63,6 +63,9 @@
     lua-language-server
     stylua
 
+    #misc
+    ltex-ls
+
     cht-sh
     hcloud
     delta

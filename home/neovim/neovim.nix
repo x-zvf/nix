@@ -25,7 +25,6 @@
       luvit-meta
 
       #mini
-
       conform-nvim
       nvim-lspconfig
       cmp-nvim-lsp
@@ -36,6 +35,8 @@
       nvim-cmp
       cmp-path
       todo-comments-nvim
+      ltex_extra-nvim
+      comment-nvim
 
       kanagawa-nvim
     ];

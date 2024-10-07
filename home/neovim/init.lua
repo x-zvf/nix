@@ -172,6 +172,16 @@ local servers = {
 	rust_analyzer = {},
 	ts_ls = {},
 	emmet_language_server = {},
+	ltex = {
+		language = "en",
+		additionalRules = {
+			languageModel = "~/install/ngrams/en/",
+		},
+		on_attach = function(_, _)
+			require("ltex_extra").setup()
+		end,
+	},
+	nil_ls = {},
 	lua_ls = {
 		settings = {
 			Lua = {
@@ -252,13 +262,14 @@ cmp.setup({
 		{ name = "nvim_lsp" },
 		{ name = "luasnip" },
 		{ name = "path" },
-		{ name = "spell" },
+		--{ name = "spell" },
 	},
 })
 
 -- misc plugins
 require("kanagawa").load("dragon") -- theme
 require("gitsigns").setup()
+require("Comment").setup()
 
 vim.api.nvim_create_autocmd("TextYankPost", {
 	desc = "Highlight when yanking (copying) text",
