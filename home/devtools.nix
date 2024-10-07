@@ -63,6 +63,7 @@
     stylua
 
     cht-sh
+    hcloud
     delta
     gh
     glab
