@@ -29,7 +29,6 @@
     virtiofsd
     zsh
 
-
     linuxPackages_latest.systemtap
 
     # fix input-leap

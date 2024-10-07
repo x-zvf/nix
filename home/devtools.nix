@@ -62,6 +62,7 @@
     lua-language-server
     stylua
 
+    cht-sh
     delta
     gh
     glab

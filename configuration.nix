@@ -17,9 +17,9 @@
 
     kernelPackages = pkgs.linuxPackages_latest;
     kernelParams = [
-    "rd.luks.options=discard"
-    "amd_iommu=off" # VP9 video decode bug - still happening
-    #"amdgpu.sg_display=0"
+      "rd.luks.options=discard"
+      "amd_iommu=off" # VP9 video decode bug - still happening
+      #"amdgpu.sg_display=0"
     ];
     kernel.sysctl."kernel.sysrq" = 1;
   };
@@ -46,7 +46,7 @@
     spiceUSBRedirection.enable = true;
     docker.enable = true;
     waydroid.enable = true;
-    vmVariant = { 
+    vmVariant = {
       virtualisation = {
         qemu.options = ["-device virtio-vga"];
         memorySize = 8192;
@@ -61,7 +61,7 @@
   services.avahi.enable = true;
   services.avahi.nssmdns4 = true;
   services.resolved.enable = true;
-  services.udev.packages = [ 
+  services.udev.packages = [
     pkgs.platformio-core
     pkgs.openocd
   ];
@@ -79,7 +79,7 @@
         variant = "";
       };
     };
-    displayManager.sessionPackages = [ pkgs.sway ];
+    displayManager.sessionPackages = [pkgs.sway];
     displayManager.sddm = {
       enable = true;
       wayland.enable = true;
@@ -93,7 +93,7 @@
       xdg-desktop-portal-gtk
     ];
   };
-   hardware.graphics = {
+  hardware.graphics = {
     enable = true;
     enable32Bit = true;
   };
@@ -124,7 +124,6 @@
     jack.enable = true;
   };
 
-
   # misc
   services.locate = {
     enable = true;
@@ -138,14 +137,14 @@
     pam.services.swaylock = {};
     rtkit.enable = true;
     polkit.enable = true;
+    sudo.wheelNeedsPassword = false;
   };
-
 
   hardware.enableAllFirmware = true;
 
   # Framework 13 specific changes
   hardware.sensor.iio.enable = true;
-  
+
   services = {
     fwupd.enable = true;
     fprintd.enable = true;
@@ -154,8 +153,8 @@
   };
 
   systemd.services.disableInterrupt = {
-    wantedBy = [ "multi-user.target" ];
-    after = [ "network.target" ];
+    wantedBy = ["multi-user.target"];
+    after = ["network.target"];
     description = "Disable GPE 10 interrupt";
     serviceConfig = {
       Type = "oneshot";

@@ -14,13 +14,13 @@
     #  inputs.nixpkgs.follows = "nixpkgs";
     #};
     #flake-utils.url = "github:numtide/flake-utils";
-#    rust-overlay = {
-#      url = "github:oxalica/rust-overlay";
-#      inputs = {
-#        nixpkgs.follows = "nixpkgs";
-#        flake-utils.follows = "flake-utils";
-#      };
-#    };
+    #    rust-overlay = {
+    #      url = "github:oxalica/rust-overlay";
+    #      inputs = {
+    #        nixpkgs.follows = "nixpkgs";
+    #        flake-utils.follows = "flake-utils";
+    #      };
+    #    };
   };
 
   outputs = {
@@ -37,10 +37,11 @@
       specialArgs = {inherit inputs;};
       modules = [
         ./configuration.nix
-        home-manager.nixosModules.home-manager {
-            home-manager.users.xzvf = import ./home.nix;
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
+        home-manager.nixosModules.home-manager
+        {
+          home-manager.users.xzvf = import ./home.nix;
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
         }
       ];
     };
