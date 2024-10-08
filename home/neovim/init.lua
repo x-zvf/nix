@@ -16,14 +16,15 @@ vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 vim.opt.scrolloff = 5
 vim.opt.spell = true
 vim.opt.spelllang = { "en", "de", "hu" }
+vim.opt.colorcolumn = { 81, 121 }
 
--- we are using vim-sleuth so these are only the fallback value
+-- we are using vim-sleuth so these are only the fallback values
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 
--- keybinds
+-- keybindings
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
