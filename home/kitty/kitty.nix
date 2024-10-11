@@ -1,6 +1,7 @@
 {...}: {
   programs.kitty = {
     enable = true;
+    shellIntegration.enableZshIntegration = true;
     settings = {
       font_family = "Fira Code";
       font_size = 11;
