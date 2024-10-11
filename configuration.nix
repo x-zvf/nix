@@ -44,7 +44,11 @@
   virtualisation = {
     libvirtd.enable = true;
     spiceUSBRedirection.enable = true;
-    docker.enable = true;
+    #docker.enable = true;
+    podman = {
+      enable = true;
+      dockerCompat = true;
+    };
     waydroid.enable = true;
     vmVariant = {
       virtualisation = {
