@@ -36,7 +36,7 @@ vim.keymap.set("n", "<leader>wh", "<C-w><C-h>", { desc = "[W]indow focus left" }
 vim.keymap.set("n", "<leader>wl", "<C-w><C-l>", { desc = "[W]indow focus right" })
 vim.keymap.set("n", "<leader>wj", "<C-w><C-j>", { desc = "[W]indow focus down" })
 vim.keymap.set("n", "<leader>wk", "<C-w><C-k>", { desc = "[W]indow focus up" })
-vim.keymap.set("n", "<leader>ws", "<CMD>split<CR>", { desc = "[W]indow split horizontal" })
+vim.keymap.set("n", "<leader>ww", "<CMD>split<CR>", { desc = "[W]indow split horizontal" })
 vim.keymap.set("n", "<leader>wv", "<CMD>vsplit<CR>", { desc = "[W]indow split vertical" })
 
 -- telescope: navigation
