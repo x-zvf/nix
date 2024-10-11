@@ -97,19 +97,22 @@
     '';
     ".gitconfig".text = ''
       [commit]
-      	gpgsign = false
+        gpgsign = true
+      [gpg]
+        format = ssh
       [core]
-      	pager = delta
+        pager = delta
       [user]
-      	email = peter@bohner.me
-      	name = Péter Bohner (xzvf)
+        email = peter@bohner.me
+        name = Péter Bohner (xzvf)
+        signingkey = ~/.ssh/id_ed25519.pub
       [push]
-      	autoSetupRemote = true
-      	default = current
+        autoSetupRemote = true
+        default = current
       [pull]
-      	rebase = true
+        rebase = true
       [credential]
-      	helper = store
+        helper = store
       [init]
         defaultBranch = master
     '';
