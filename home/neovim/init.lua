@@ -173,6 +173,7 @@ local servers = {
 	rust_analyzer = {},
 	ts_ls = {},
 	emmet_language_server = {},
+	tailwindcss = {},
 	ltex = {
 		language = "en",
 		additionalRules = {
@@ -181,6 +182,7 @@ local servers = {
 		on_attach = function(_, _)
 			require("ltex_extra").setup()
 		end,
+		filetypes = { "markdown", "tex" },
 	},
 	nil_ls = {},
 	lua_ls = {

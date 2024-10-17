@@ -36,6 +36,7 @@
     tailwindcss
     tailwindcss-language-server
     emmet-language-server
+    live-server
 
     #go
     go
