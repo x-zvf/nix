@@ -26,6 +26,7 @@
     swi-prolog
     zig
     shellcheck
+    hugo
 
     #js
     nodejs_22
