@@ -175,9 +175,11 @@ local servers = {
 	emmet_language_server = {},
 	tailwindcss = {},
 	ltex = {
-		language = "en",
+		language = "en-GB",
 		additionalRules = {
-			languageModel = "~/install/ngrams/en/",
+			languageModel = "~/install/ngrams/",
+			enablePickyRules = true,
+			motherTongue = "de-DE",
 		},
 		on_attach = function(_, _)
 			require("ltex_extra").setup()
@@ -281,3 +283,19 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 		vim.highlight.on_yank()
 	end,
 })
+
+local function set_ltex_lang(lang)
+	local clients = vim.lsp.get_clients({ buffer = 0 })
+
+	for _, client in ipairs(clients) do
+		if client.name == "ltex" then
+			client.config.settings.ltex.language = lang
+			vim.lsp.buf_notify(0, "workspace/didChangeConfiguration", { settings = client.config.settings })
+			return
+		end
+	end
+end
+
+vim.api.nvim_create_user_command("LTexSetLang", function(opts)
+	set_ltex_lang(opts.fargs[1])
+end, { nargs = 1 })
