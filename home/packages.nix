@@ -44,6 +44,7 @@ in {
     paps
     pferd
     traceroute
+    timewarrior
     tree
     yt-dlp
     xxd
