@@ -29,7 +29,7 @@
     virtiofsd
     zsh
 
-    linuxPackages_latest.systemtap
+    bpftrace
 
     # fix input-leap
     libsForQt5.qt5.qtwayland
