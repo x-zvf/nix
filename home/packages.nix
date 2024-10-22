@@ -49,6 +49,8 @@ in {
     yt-dlp
     xxd
     hexdump
+    pandoc
+    texliveFull
 
     # Fonts
     nerdfonts
