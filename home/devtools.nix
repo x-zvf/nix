@@ -9,6 +9,7 @@
     jetbrains.clion
     insomnia
     sublime-merge
+    sublime4
     ghidra
     emacs
     devdocs-desktop

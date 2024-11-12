@@ -39,6 +39,7 @@
     dconf.enable = true;
     mtr.enable = true;
     light.enable = true;
+    kdeconnect.enable = true;
   };
 
   virtualisation = {
@@ -174,5 +175,8 @@
   };
 
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.permittedInsecurePackages = [
+    "openssl-1.1.1w" # sublime4
+  ];
   system.stateVersion = "24.05";
 }
