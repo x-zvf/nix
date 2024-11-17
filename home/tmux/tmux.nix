@@ -2,9 +2,11 @@
   config = {
     programs.tmux = {
       enable = true;
-      historyLimit = 10000;
+      historyLimit = 100000;
       keyMode = "vi";
       mouse = true;
+      clock24 = true;
+      baseIndex = 1;
       extraConfig = builtins.readFile ./tmux.conf;
       plugins = with pkgs.tmuxPlugins; [
         sensible
