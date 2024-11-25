@@ -34,6 +34,8 @@
     # fix input-leap
     libsForQt5.qt5.qtwayland
     qt6.qtwayland
+
+    fw-ectool
   ];
   programs.steam = {
     enable = true;
