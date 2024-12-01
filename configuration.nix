@@ -43,7 +43,10 @@
   };
 
   virtualisation = {
-    libvirtd.enable = true;
+    libvirtd = {
+      enable = true;
+      qemu.vhostUserPackages = with pkgs; [virtiofsd];
+    };
     spiceUSBRedirection.enable = true;
     docker.enable = true;
     waydroid.enable = true;

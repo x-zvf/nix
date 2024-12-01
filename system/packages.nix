@@ -27,7 +27,9 @@
     wireguard-tools
     wl-clipboard
     virtiofsd
+    nfs-utils
     zsh
+    nushell
 
     bpftrace
 
