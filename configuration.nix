@@ -62,6 +62,7 @@
   networking.hostName = "rubidium"; # Define your hostname.
   networking.networkmanager.enable = true;
   networking.firewall.enable = false;
+
   services.avahi.enable = true;
   services.avahi.nssmdns4 = true;
   services.resolved.enable = true;

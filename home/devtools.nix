@@ -22,6 +22,7 @@
     clang-tools
     gnumake
     clojure
+    babashka
     cmake
     ghc
     swi-prolog

@@ -53,8 +53,10 @@ in {
     texliveFull
 
     # Fonts
-    nerdfonts
-    fira-code
+    #nerdfonts
+    nerd-fonts.fira-code
+    nerd-fonts.fira-mono
+    #fira-code
 
     # nix
     nvd
