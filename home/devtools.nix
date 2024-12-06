@@ -80,6 +80,7 @@
     ripgrep
     ripgrep-all
     zip
+    hyperfine
 
     libtool
   ];
