@@ -1,8 +1,4 @@
-{
-  pkgs,
-  inputs,
-  ...
-}: {
+{pkgs, ...}: {
   nix.settings.experimental-features = ["nix-command" "flakes"];
   nix.optimise.automatic = true;
   imports = [
@@ -75,7 +71,6 @@
   console.keyMap = "uk";
   i18n.defaultLocale = "en_GB.UTF-8";
 
-  # KDE (sway configured by home-manager
   services = {
     xserver = {
       enable = true;
@@ -84,7 +79,6 @@
         variant = "";
       };
     };
-    displayManager.sessionPackages = [pkgs.sway];
     displayManager.sddm = {
       enable = true;
       wayland.enable = true;
@@ -139,7 +133,6 @@
 
   services.printing.enable = true;
   security = {
-    pam.services.swaylock = {};
     rtkit.enable = true;
     polkit.enable = true;
     sudo.wheelNeedsPassword = false;
