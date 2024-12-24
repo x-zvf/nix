@@ -83,6 +83,9 @@
     hyperfine
 
     libtool
+
+    platformio
+    avrdude
   ];
   programs.vscode = {
     enable = true;

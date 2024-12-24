@@ -26,6 +26,7 @@ in {
     tor-browser
     gimp
     krita
+    audacity
     inkscape
     blender
     thunderbird
