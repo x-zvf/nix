@@ -29,6 +29,7 @@ in {
     audacity
     inkscape
     blender
+    nautilus
     thunderbird
     vlc
     texliveFull
