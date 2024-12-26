@@ -271,6 +271,24 @@ cmp.setup({
 	},
 })
 
+require("trouble").setup({})
+vim.keymap.set("n", "<leader>tda", "<cmd>Trouble diagnostics toggle<cr>", { desc = "[T]rouble [D]iagnostics [A]ll" })
+vim.keymap.set(
+	"n",
+	"<leader>td",
+	"<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
+	{ desc = "[T]rouble [D]iagnostics (buf)" }
+)
+vim.keymap.set("n", "<leader>ts", "<cmd>Trouble symbols toggle focus=false<cr>", { desc = "[T]rouble [S]ymbols" })
+vim.keymap.set(
+	"n",
+	"<leader>tls",
+	"<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
+	{ desc = "[T] [LS]P Definitions / references / ..." }
+)
+vim.keymap.set("n", "<leader>tll", "<cmd>Trouble loclist toggle<cr>", { desc = "[T]rouble [L]ocation List" })
+vim.keymap.set("n", "<leader>tq", "<cmd>Trouble qflist toggle<cr>", { desc = "[T]rouble [Q]uickfix List" })
+
 -- misc plugins
 require("kanagawa").load("dragon") -- theme
 require("gitsigns").setup()

@@ -34,6 +34,8 @@
       ltex_extra-nvim
       comment-nvim
 
+      trouble-nvim
+
       kanagawa-nvim
     ];
     extraLuaConfig = lib.fileContents ./init.lua;
