@@ -18,6 +18,7 @@ in {
 
     homebank
     libreoffice
+    onlyoffice-bin
     mpv
     qalculate-qt
     nextcloud-client
