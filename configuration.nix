@@ -14,7 +14,7 @@
     kernelPackages = pkgs.linuxPackages_latest;
     kernelParams = [
       "rd.luks.options=discard"
-      "amd_iommu=off" # VP9 video decode bug - still happening
+      #"amd_iommu=off" # VP9 video decode bug - still happening
       #"amdgpu.sg_display=0"
     ];
     kernel.sysctl."kernel.sysrq" = 1;
@@ -95,6 +95,11 @@
     openFirewall = true;
   };
 
+  services.zerotierone = {
+    enable = true;
+    joinNetworks = ["272f5eae16696d44"];
+  };
+
   time.timeZone = "Europe/Berlin";
   console.keyMap = "uk";
   i18n.defaultLocale = "en_GB.UTF-8";
@@ -142,6 +147,7 @@
     serviceConfig.ExecStart = "${pkgs.bluez}/bin/mpris-proxy";
   };
 
+  #services.pulseaudio.enable = false;
   hardware.pulseaudio.enable = false;
   services.pipewire = {
     enable = true;

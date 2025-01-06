@@ -49,6 +49,7 @@
     #rust-bin.nightly.latest.default
     rustc
     rustfmt
+    rust-analyzer
     cargo
 
     #nix

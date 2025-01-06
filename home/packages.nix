@@ -45,7 +45,7 @@ in {
     fd
     glances
     lsd
-    paps
+    #paps
     pferd
     traceroute
     timewarrior
