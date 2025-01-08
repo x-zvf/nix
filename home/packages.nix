@@ -36,31 +36,15 @@ in {
     texliveFull
     yakuake
 
-    # cli tools
-    bat
-    dig
     distrobox
-    fastfetch
-    file
-    fd
-    glances
-    lsd
-    #paps
     pferd
-    traceroute
     timewarrior
-    tree
     yt-dlp
-    xxd
-    hexdump
     pandoc
     texliveFull
 
-    # Fonts
-    #nerdfonts
     nerd-fonts.fira-code
     nerd-fonts.fira-mono
-    #fira-code
 
     # nix
     nvd

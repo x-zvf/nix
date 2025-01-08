@@ -14,9 +14,6 @@
     emacs
     devdocs-desktop
 
-    sequoia
-    openssl
-
     binwalk
     clang
     clang-tools
@@ -71,17 +68,10 @@
     #misc
     ltex-ls
 
-    cht-sh
     hcloud
     delta
     gh
     glab
-    htmlq
-    jq
-    ripgrep
-    ripgrep-all
-    zip
-    hyperfine
 
     libtool
 
