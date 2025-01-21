@@ -10,7 +10,11 @@ in {
     alacritty
     anki
     bitwarden-desktop
-    chromium
+    (ungoogled-chromium.override {
+      commandLineArgs = [
+      ];
+      enableWideVine = true;
+    })
     easyeffects
 
     # firefox
@@ -24,6 +28,7 @@ in {
     nextcloud-client
     pympress
     signal-desktop
+    ferdium
     tor-browser
     gimp
     krita
@@ -48,9 +53,8 @@ in {
 
     # nix
     nvd
+    amdgpu_top
 
-    # unfree
-    rambox
     # custom
     ipePkg
     #input-leapPkg
