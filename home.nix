@@ -41,5 +41,6 @@
     VISUAL = "nvim";
     BROWSER = "firefox";
     XDG_CURRENT_DESKTOP = "KDE";
+    NIXOS_OZONE_WL = "1";
   };
 }
