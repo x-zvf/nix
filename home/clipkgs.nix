@@ -23,6 +23,7 @@ in {
     ripgrep
     ripgrep-all
     sequoia
+    sshfs
     traceroute
     tree
     xxd
