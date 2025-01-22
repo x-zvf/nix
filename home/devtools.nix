@@ -10,7 +10,7 @@
     insomnia
     sublime-merge
     sublime4
-    #ghidra
+    ghidra
     emacs
     devdocs-desktop
 
