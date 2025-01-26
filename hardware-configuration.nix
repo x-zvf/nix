@@ -45,7 +45,7 @@
   swapDevices = [];
 
   #networking.useDHCP = lib.mkDefault true;
-  systemd.network.enable = true;
+  #systemd.network.enable = true;
   # networking.interfaces.eth0.useDHCP = lib.mkDefault true;
   # networking.interfaces.wlp1s0.useDHCP = lib.mkDefault true;
 
