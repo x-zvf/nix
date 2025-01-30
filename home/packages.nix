@@ -48,6 +48,7 @@ in {
     vlc
     texliveFull
     yakuake
+    xournalpp
 
     distrobox
     pferd
