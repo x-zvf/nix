@@ -26,6 +26,8 @@
     zig
     shellcheck
     hugo
+    sqlite
+    postgresql
 
     #js
     nodejs_22
@@ -41,6 +43,8 @@
     #go
     go
     gopls
+    air
+    sqlc
 
     #rust
     #rust-bin.nightly.latest.default

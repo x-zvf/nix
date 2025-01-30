@@ -16,6 +16,7 @@ in {
     glances
     hexdump
     htmlq
+    httpie
     hyperfine
     jq
     lsd
