@@ -40,6 +40,7 @@
 
       lspkind-nvim
       copilot-lua
+      copilot-cmp
       copilot-lualine
       lualine-nvim
     ];
