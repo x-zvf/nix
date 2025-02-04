@@ -37,6 +37,11 @@
       trouble-nvim
 
       kanagawa-nvim
+
+      lspkind-nvim
+      copilot-lua
+      copilot-lualine
+      lualine-nvim
     ];
     extraLuaConfig = lib.fileContents ./init.lua;
   };

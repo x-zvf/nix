@@ -215,6 +215,7 @@ require("lazydev").setup({
 -- cmp
 local cmp = require("cmp")
 local luasnip = require("luasnip")
+local lspkind = require("lspkind")
 luasnip.config.setup({})
 cmp.setup({
 	snippet = {
@@ -258,6 +259,28 @@ cmp.setup({
 			end
 		end, { "i", "s" }),
 	}),
+
+	formatting = {
+		format = lspkind.cmp_format({
+			mode = "symbol", -- show only symbol annotations
+			maxwidth = {
+				-- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+				-- can also be a function to dynamically calculate max width such as
+				-- menu = function() return math.floor(0.45 * vim.o.columns) end,
+				menu = 50, -- leading text (labelDetails)
+				abbr = 50, -- actual suggestion item
+			},
+			ellipsis_char = "...", -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
+			show_labelDetails = true, -- show labelDetails in menu. Disabled by default
+
+			-- The function below will be called before any actual modifications from lspkind
+			-- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
+			before = function(entry, vim_item)
+				-- ...
+				return vim_item
+			end,
+		}),
+	},
 	sources = {
 		{
 			name = "lazydev",
@@ -268,6 +291,7 @@ cmp.setup({
 		{ name = "luasnip" },
 		{ name = "path" },
 		--{ name = "spell" },
+		{ name = "copilot" },
 	},
 })
 
@@ -317,3 +341,32 @@ end
 vim.api.nvim_create_user_command("LTexSetLang", function(opts)
 	set_ltex_lang(opts.fargs[1])
 end, { nargs = 1 })
+
+vim.api.nvim_create_user_command("LoadCopilot", function()
+	require("copilot").setup({})
+	require("copilot_cmp").setup({})
+end, {})
+
+require("lualine").setup({
+	options = {
+		theme = "dracula",
+		component_separators = { left = "", right = "" },
+		section_separators = { left = "", right = "" },
+	},
+	sections = {
+		lualine_a = { "mode" },
+		lualine_b = { "branch", "diff", "diagnostics" },
+		lualine_c = { "filename" },
+		lualine_x = { "copilot", "encoding", "fileformat", "filetype" },
+		lualine_y = { "progress" },
+		lualine_z = { "location" },
+	},
+	inactive_sections = {
+		lualine_a = {},
+		lualine_b = {},
+		lualine_c = { "filename" },
+		lualine_x = { "location" },
+		lualine_y = {},
+		lualine_z = {},
+	},
+})
