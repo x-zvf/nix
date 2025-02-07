@@ -49,6 +49,7 @@ in {
     texliveFull
     yakuake
     xournalpp
+    obsidian
 
     distrobox
     pferd
