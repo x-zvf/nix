@@ -42,7 +42,7 @@ in {
     krita
     audacity
     inkscape
-    blender
+    blender-hip
     nautilus
     thunderbird
     vlc
