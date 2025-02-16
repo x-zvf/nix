@@ -206,9 +206,16 @@
     extraGroups = ["networkmanager" "wheel" "dialout" "networkmanager" "docker" "video"];
   };
 
-  nixpkgs.config.allowUnfree = true;
-  nixpkgs.config.permittedInsecurePackages = [
-    "openssl-1.1.1w" # sublime4
-  ];
+  nixpkgs.config = {
+    allowUnfree = true;
+    allowUnfreePredicate = _: true;
+    permittedInsecurePackages = [
+      "openssl-1.1.1w" # sublime4
+    ];
+  };
+  #nixpkgs.config.allowUnfree = true;
+  #nixpkgs.config.permittedInsecurePackages = [
+  #  "openssl-1.1.1w" # sublime4
+  #];
   system.stateVersion = "24.05";
 }
