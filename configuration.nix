@@ -58,6 +58,10 @@
   networking.hostName = "rubidium"; # Define your hostname.
   networking.networkmanager.enable = true;
 
+  systemd.extraConfig = ''
+    DefaultTimeoutStopSec=5s
+  '';
+
   systemd.services.NetworkManager-wait-online.enable = false;
   #systemd.services.systemd-networkd-wait-online.enable = false;
   networking.firewall.enable = false;
