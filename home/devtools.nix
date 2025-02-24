@@ -19,6 +19,7 @@
     clang-tools
     gnumake
     clojure
+    leiningen
     babashka
     cmake
     ghc
