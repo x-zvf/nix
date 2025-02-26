@@ -47,7 +47,7 @@ in {
     thunderbird
     vlc
     texliveFull
-    yakuake
+    kdePackages.yakuake
     xournalpp
     obsidian
 
