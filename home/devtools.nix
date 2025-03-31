@@ -72,6 +72,8 @@
 
     #misc
     ltex-ls
+    typst
+    tinymist
 
     hcloud
     delta

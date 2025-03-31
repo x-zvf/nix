@@ -184,7 +184,19 @@ local servers = {
 		on_attach = function(_, _)
 			require("ltex_extra").setup()
 		end,
-		filetypes = { "markdown", "tex" },
+		filetypes = {
+			"bibtex",
+			"context",
+			"context.tex",
+			"html",
+			"latex",
+			"markdown",
+			"org",
+			"restructuredtext",
+			"rsweave",
+			"typst",
+			"typ",
+		},
 	},
 	nil_ls = {},
 	lua_ls = {
@@ -196,6 +208,10 @@ local servers = {
 				diagnostics = { disable = { "missing-fields" } },
 			},
 		},
+	},
+	tinymist = {
+		formatterMode = "typstyle",
+		exportPdf = "onType",
 	},
 }
 
@@ -317,6 +333,7 @@ vim.keymap.set("n", "<leader>tq", "<cmd>Trouble qflist toggle<cr>", { desc = "[T
 require("kanagawa").load("dragon") -- theme
 require("gitsigns").setup()
 require("Comment").setup()
+require("typst-preview").setup()
 
 vim.api.nvim_create_autocmd("TextYankPost", {
 	desc = "Highlight when yanking (copying) text",

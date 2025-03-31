@@ -32,6 +32,7 @@
       cmp-path
       todo-comments-nvim
       ltex_extra-nvim
+      typst-preview-nvim
       comment-nvim
 
       trouble-nvim
