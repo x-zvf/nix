@@ -40,6 +40,7 @@
 
       [[ ! -f ${./p10k.zsh} ]] || source ${./p10k.zsh}
       autoload -Uz promptinit && promptinit && prompt powerlevel10k
+      setopt interactivecomments
     '';
 
     shellAliases = {
