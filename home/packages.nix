@@ -35,7 +35,7 @@ in {
     qalculate-qt
     nextcloud-client
     pympress
-    signal-desktop
+    signal-desktop-bin
     ferdium
     tor-browser
     gimp

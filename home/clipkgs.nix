@@ -16,9 +16,10 @@ in {
     glances
     hexdump
     htmlq
+    jq
+    yq
     httpie
     hyperfine
-    jq
     lsd
     openssl
     ripgrep

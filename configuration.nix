@@ -45,7 +45,7 @@
     spiceUSBRedirection.enable = true;
     docker.enable = true;
     waydroid.enable = true;
-    vmware.host.enable = true;
+    #vmware.host.enable = true;
     vmVariant = {
       virtualisation = {
         qemu.options = ["-device virtio-vga"];
