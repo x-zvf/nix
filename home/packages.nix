@@ -7,7 +7,6 @@
   input-leapPkg = (import ../custom_packages/input-leap.nix) args;
 in {
   home.packages = with pkgs; [
-    alacritty
     anki
     bitwarden-desktop
     (ungoogled-chromium.override {

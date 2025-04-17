@@ -14,7 +14,7 @@
     ./home/packages.nix
     ./home/clipkgs.nix
     ./home/zsh/zsh.nix
-    ./home/kitty/kitty.nix
+    ./home/ghostty/ghostty.nix
     ./home/tmux/tmux.nix
     ./home/neovim/neovim.nix
   ];
