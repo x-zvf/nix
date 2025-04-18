@@ -12,6 +12,7 @@
     antidote.plugins = [
       "zsh-users/zsh-autosuggestions"
       "romkatv/powerlevel10k kind:fpath"
+      "zsh-users/zsh-syntax-highlighting"
     ];
     initExtra = ''
       mkcd() {
@@ -41,6 +42,7 @@
       [[ ! -f ${./p10k.zsh} ]] || source ${./p10k.zsh}
       autoload -Uz promptinit && promptinit && prompt powerlevel10k
       setopt interactivecomments
+      ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=6'
     '';
 
     shellAliases = {

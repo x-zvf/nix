@@ -5,7 +5,7 @@
     settings = {
       font-family = "Fira Code Nerd Font Mono";
       font-size = 11;
-      background-opacity = 0.7;
+      background-opacity = 0.85;
       background-blur = true;
       quit-after-last-window-closed = false;
       gtk-single-instance = true;

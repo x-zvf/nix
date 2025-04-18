@@ -47,6 +47,7 @@ in {
     vlc
     texliveFull
     kdePackages.yakuake
+    kdePackages.kdeplasma-addons
     xournalpp
     obsidian
 
