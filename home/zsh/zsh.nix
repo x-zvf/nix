@@ -3,6 +3,11 @@
   pkgs,
   ...
 }: {
+  programs.oh-my-posh = {
+    enable = true;
+    enableZshIntegration = true;
+    useTheme = "catppuccin_mocha";
+  };
   programs.zsh = {
     enable = true;
     antidote.enable = true;
@@ -11,7 +16,6 @@
 
     antidote.plugins = [
       "zsh-users/zsh-autosuggestions"
-      "romkatv/powerlevel10k kind:fpath"
       "zsh-users/zsh-syntax-highlighting"
     ];
     initExtra = ''
@@ -39,8 +43,6 @@
       bindkey "$terminfo[kcuu1]" history-beginning-search-backward-end
       bindkey "$terminfo[kcud1]" history-beginning-search-forward-end
 
-      [[ ! -f ${./p10k.zsh} ]] || source ${./p10k.zsh}
-      autoload -Uz promptinit && promptinit && prompt powerlevel10k
       setopt interactivecomments
       ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=6'
     '';
