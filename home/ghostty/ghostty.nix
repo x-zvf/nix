@@ -8,6 +8,7 @@
       background-opacity = 0.85;
       background-blur = true;
       quit-after-last-window-closed = false;
+      confirm-close-surface = false;
       gtk-single-instance = true;
       scrollback-limit = 1000000;
       window-height = 35;

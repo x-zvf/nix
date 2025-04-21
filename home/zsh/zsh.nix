@@ -44,7 +44,7 @@
       bindkey "$terminfo[kcud1]" history-beginning-search-forward-end
 
       setopt interactivecomments
-      ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=6'
+      ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=13'
     '';
 
     shellAliases = {
