@@ -4,7 +4,7 @@
     enableZshIntegration = true;
     settings = {
       font-family = "Fira Code Nerd Font Mono";
-      font-size = 11;
+      font-size = 12;
       background-opacity = 0.85;
       background-blur = true;
       quit-after-last-window-closed = false;
