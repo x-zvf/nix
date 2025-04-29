@@ -33,7 +33,7 @@ in {
     mpv
     qalculate-qt
     nextcloud-client
-    pympress
+    #pympress
     signal-desktop-bin
     ferdium
     tor-browser

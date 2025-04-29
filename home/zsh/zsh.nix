@@ -18,7 +18,7 @@
       "zsh-users/zsh-autosuggestions"
       "zsh-users/zsh-syntax-highlighting"
     ];
-    initExtra = ''
+    initContent = ''
       mkcd() {
           mkdir -p "$1" && cd "$1"
       }
