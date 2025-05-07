@@ -68,6 +68,8 @@ in {
     pandoc
     texliveFull
 
+    spotify
+
     nerd-fonts.fira-code
     nerd-fonts.fira-mono
 
