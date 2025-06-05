@@ -62,6 +62,7 @@ in {
     obsidian
 
     distrobox
+    (bottles.override {removeWarningPopup = true;})
     pferd
     timewarrior
     yt-dlp
