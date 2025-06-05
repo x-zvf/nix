@@ -81,6 +81,7 @@
     ltex-ls
     typst
     tinymist
+    cloc
 
     hcloud
     delta
