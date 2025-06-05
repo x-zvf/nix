@@ -61,7 +61,14 @@
     nil
 
     #python
-    python313Full
+    (python3.withPackages
+      (pp: [
+        pp.pandas
+        pp.numpy
+        pp.matplotlib
+        pp.jupyter
+      ]))
+
     black
     isort
     pyright
