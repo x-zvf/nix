@@ -10,7 +10,7 @@
   programs.home-manager.enable = true;
 
   imports = [
-    ./home/clipkgs.nix
+    ./modules/pkgsets/clipkgs.nix
     ./home/zsh/zsh.nix
     ./home/tmux/tmux.nix
     ./home/neovim/neovim.nix

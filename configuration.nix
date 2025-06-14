@@ -3,8 +3,9 @@
   nix.optimise.automatic = true;
   imports = [
     ./hardware-configuration.nix
-    ./system/packages.nix
-    ./system/cron.nix
+    ./modules/pkgsets/system-packages.nix
+    ./modules/steam.nix
+    ./modules/cron.nix
   ];
 
   boot = {

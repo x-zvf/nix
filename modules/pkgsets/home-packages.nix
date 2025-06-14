@@ -3,8 +3,8 @@
   pkgs,
   ...
 } @ args: let
-  ipePkg = (import ../custom_packages/ipe.nix) args;
-  input-leapPkg = (import ../custom_packages/input-leap.nix) args;
+  ipePkg = (import ../ipe.nix) args;
+  input-leapPkg = (import ../input-leap.nix) args;
 in {
   home.packages = with pkgs; [
     anki

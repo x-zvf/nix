@@ -10,14 +10,15 @@
   programs.home-manager.enable = true;
 
   imports = [
-    ./home/devtools.nix
-    ./home/packages.nix
-    ./home/clipkgs.nix
-    ./home/zsh/zsh.nix
-    ./home/ghostty/ghostty.nix
-    ./home/tmux/tmux.nix
-    ./home/neovim/neovim.nix
-    ./home/sway/sway.nix
+    ./modules/pkgsets/devtools.nix
+    ./modules/pkgsets/home-packages.nix
+    ./modules/pkgsets/clipkgs.nix
+    ./modules/zsh/zsh.nix
+    ./modules/ghostty.nix
+    ./modules/tmux/tmux.nix
+    ./modules/neovim/neovim.nix
+    ./modules/sway-session.nix
+    ./modules/scripts.nix
   ];
 
   # MISC
