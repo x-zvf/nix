@@ -9,10 +9,8 @@
   ];
 
   boot = {
-    loader.systemd-boot.enable = true;
     loader.efi.canTouchEfiVariables = true;
 
-    kernelPackages = pkgs.linuxPackages_latest;
     kernelParams = [
       "rd.luks.options=discard"
       #"amd_iommu=off" # VP9 video decode bug - still happening
@@ -57,8 +55,11 @@
     };
   };
 
-  networking.hostName = "rubidium"; # Define your hostname.
-  networking.networkmanager.enable = true;
+  networking = {
+    hostName = "rubidium";
+    hostId = "7de56727";
+    networkmanager.enable = true;
+  };
 
   systemd.extraConfig = ''
     DefaultTimeoutStopSec=5s
@@ -254,5 +255,5 @@
       "openssl-1.1.1w" # sublime4
     ];
   };
-  system.stateVersion = "24.05";
+  system.stateVersion = "25.05";
 }
