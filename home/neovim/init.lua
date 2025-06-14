@@ -335,7 +335,8 @@ vim.keymap.set("n", "<leader>tll", "<cmd>Trouble loclist toggle<cr>", { desc = "
 vim.keymap.set("n", "<leader>tq", "<cmd>Trouble qflist toggle<cr>", { desc = "[T]rouble [Q]uickfix List" })
 
 -- misc plugins
-require("kanagawa").load("dragon") -- theme
+--require("kanagawa").load("dragon") -- theme
+require("dracula").setup({ colorsheme = "dracula" })
 require("gitsigns").setup()
 require("Comment").setup()
 require("typst-preview").setup()
@@ -371,7 +372,7 @@ end, {})
 
 require("lualine").setup({
 	options = {
-		theme = "dracula",
+		theme = "dracula-nvim",
 		component_separators = { left = "", right = "" },
 		section_separators = { left = "", right = "" },
 	},

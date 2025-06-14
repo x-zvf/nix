@@ -37,7 +37,8 @@
 
       trouble-nvim
 
-      kanagawa-nvim
+      #kanagawa-nvim
+      dracula-nvim
 
       lspkind-nvim
       copilot-lua

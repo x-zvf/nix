@@ -17,6 +17,7 @@
     ./home/ghostty/ghostty.nix
     ./home/tmux/tmux.nix
     ./home/neovim/neovim.nix
+    ./home/sway/sway.nix
   ];
 
   # MISC

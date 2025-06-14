@@ -35,6 +35,7 @@
     mtr.enable = true;
     light.enable = true;
     kdeconnect.enable = true;
+    nix-ld.enable = true;
   };
 
   virtualisation = {
@@ -119,12 +120,47 @@
         variant = "";
       };
     };
-    displayManager.sddm = {
-      enable = true;
-      wayland.enable = true;
+    displayManager = {
+      autoLogin = {
+        enable = true;
+        user = "xzvf";
+      };
+      defaultSession = "sway";
+      sddm = {
+        enable = true;
+        wayland.enable = true;
+      };
     };
     desktopManager.plasma6.enable = true;
   };
+  programs.sway = {
+    enable = true;
+    wrapperFeatures.gtk = true;
+  };
+
+  /*
+     services.greetd = {
+    enable = true;
+    settings = rec {
+      initial_session = {
+        command = ''
+          export XDG_SESSION_TYPE=wayland
+          export XDG_SESSION_DESKTOP=sway
+          export XDG_CURRENT_DESKTOP=sway
+
+          # Wayland stuff
+          export QT_QPA_PLATFORM=wayland
+          export SDL_VIDEODRIVER=wayland
+          export _JAVA_AWT_WM_NONREPARENTING=1
+          export NIXOS
+          ${pkgs.sway}/bin/sway -c /home/xzvf/nix/home/sway/sway.conf
+        '';
+        user = "xzvf";
+      };
+      default_session = initial_session;
+    };
+  };
+  */
   xdg.portal = {
     enable = true;
     extraPortals = with pkgs; [
@@ -217,9 +253,5 @@
       "openssl-1.1.1w" # sublime4
     ];
   };
-  #nixpkgs.config.allowUnfree = true;
-  #nixpkgs.config.permittedInsecurePackages = [
-  #  "openssl-1.1.1w" # sublime4
-  #];
   system.stateVersion = "24.05";
 }

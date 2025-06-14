@@ -1,8 +1,4 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
+{...}: {
   programs.zsh = {
     enable = true;
     antidote.enable = true;
@@ -40,10 +36,11 @@
       bindkey "$terminfo[kcud1]" history-beginning-search-forward-end
 
       [[ ! -f ${./p10k.zsh} ]] || source ${./p10k.zsh}
+      [[ ! -f ${./zsh-syntax-highlighting.sh} ]] || source ${./zsh-syntax-highlighting.sh}
       autoload -Uz promptinit && promptinit && prompt powerlevel10k
 
       setopt interactivecomments
-      ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=13'
+      #ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=13'
     '';
 
     shellAliases = {
@@ -53,6 +50,9 @@
       "la" = "lsd -lah";
       "b" = "bat";
       "o" = "xdg-open";
+
+      "tree" = "tree -C";
+
       # Git
       "ga" = "git add";
       "gu" = "git add -u; git commit -m ";
