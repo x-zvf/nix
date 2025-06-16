@@ -35,9 +35,11 @@ execifn thunderbird thunderbird
 
 swaymsg 'workspace number 3'
 
+execifn nextcloud nextcloud
 
 if [ -z "$(pgrep swayidle)" ];
 then
     swayidle -w before-sleep "loginctl lock-session $XDG_SESSION_ID" lock "playerctl -a pause && swaylock" &
 fi
+
 

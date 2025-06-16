@@ -4,7 +4,8 @@
   home,
   config,
   ...
-}: {
+}:
+{
   home.packages = with pkgs; [
     rofi
     kanshi
@@ -18,6 +19,8 @@
     playerctl
     pasystray
     cliphist
+    slurp
+    grim
   ];
 
   imports = [

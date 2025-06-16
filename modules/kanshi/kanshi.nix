@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   systemd.user.services.kanshi = {
     Unit.Description = "kanshi daemon";
     Service = {

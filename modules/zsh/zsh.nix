@@ -1,4 +1,5 @@
-{...}: {
+{ ... }:
+{
   programs.zsh = {
     enable = true;
     antidote.enable = true;
@@ -41,6 +42,7 @@
 
       setopt interactivecomments
       #ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=13'
+      export PATH="/home/xzvf/.config/scripts:$PATH"
     '';
 
     shellAliases = {
@@ -74,7 +76,8 @@
       "glances" = "glances --enable-plugin sensors";
       "ssh" = "TERM=xterm-256color ssh";
       "unfuckadb" = "sudo adb kill-server; sudo adb start-server; adb devices";
-      "yt-dl-mp3" = "yt-dlp -x --audio-format mp3 --audio-quality 0 -i --add-metadata --metadata-from-title";
+      "yt-dl-mp3" =
+        "yt-dlp -x --audio-format mp3 --audio-quality 0 -i --add-metadata --metadata-from-title";
     };
   };
 

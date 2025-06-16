@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   imports = [
     #./neovim/neovim.nix
   ];
@@ -55,19 +56,18 @@
     cargo
 
     #nix
-    alejandra
+    nixfmt-rfc-style
     deadnix
     statix
     nil
 
     #python
-    (python3.withPackages
-      (pp: [
-        pp.pandas
-        pp.numpy
-        pp.matplotlib
-        pp.jupyter
-      ]))
+    (python3.withPackages (pp: [
+      pp.pandas
+      pp.numpy
+      pp.matplotlib
+      pp.jupyter
+    ]))
 
     black
     isort

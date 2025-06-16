@@ -2,10 +2,12 @@
   config,
   pkgs,
   ...
-} @ args: let
+}@args:
+let
   ipePkg = (import ../ipe.nix) args;
   input-leapPkg = (import ../input-leap.nix) args;
-in {
+in
+{
   home.packages = with pkgs; [
     anki
     bitwarden-desktop
@@ -17,16 +19,15 @@ in {
     easyeffects
 
     # firefox
-    (pkgs.wrapFirefox (pkgs.firefox-unwrapped.override {pipewireSupport = true;}) {})
+    (pkgs.wrapFirefox (pkgs.firefox-unwrapped.override { pipewireSupport = true; }) { })
 
-    (homebank.overrideAttrs
-      (oldAttrs: {
-        postInstall =
-          (oldAttrs.postInstall or "")
-          + ''
-            wrapProgram $out/bin/homebank --set GDK_BACKEND x11
-          '';
-      }))
+    (homebank.overrideAttrs (oldAttrs: {
+      postInstall =
+        (oldAttrs.postInstall or "")
+        + ''
+          wrapProgram $out/bin/homebank --set GDK_BACKEND x11
+        '';
+    }))
 
     libreoffice
     onlyoffice-bin
@@ -42,7 +43,7 @@ in {
         rev = "e5da914ecb2f5beb6298225cde510e5ff07d02bc";
         sha256 = "sha256-9n/xfKwN85zqP/5wGjkRbjYo4q40yJE1ABmi40Fz9dk=";
       };
-      buildInputs = prev.buildInputs ++ [python3Packages.babel];
+      buildInputs = prev.buildInputs ++ [ python3Packages.babel ];
     }))
     signal-desktop-bin
     ferdium
@@ -62,7 +63,7 @@ in {
     obsidian
 
     distrobox
-    (bottles.override {removeWarningPopup = true;})
+    (bottles.override { removeWarningPopup = true; })
     pferd
     timewarrior
     yt-dlp

@@ -3,7 +3,8 @@
   pkgs,
   inputs,
   ...
-}: {
+}:
+{
   home.username = "xzvf";
   home.homeDirectory = "/home/xzvf";
   home.stateVersion = "24.11";

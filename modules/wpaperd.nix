@@ -1,4 +1,5 @@
-{...}: {
+{ ... }:
+{
   services.wpaperd = {
     enable = true;
     settings = {

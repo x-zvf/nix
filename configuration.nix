@@ -1,5 +1,13 @@
-{pkgs, ...}: {
-  nix.settings.experimental-features = ["nix-command" "flakes"];
+{
+  pkgs,
+  lib,
+  ...
+}:
+{
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
   nix.optimise.automatic = true;
   imports = [
     ./hardware-configuration.nix
@@ -40,7 +48,7 @@
   virtualisation = {
     libvirtd = {
       enable = true;
-      qemu.vhostUserPackages = with pkgs; [virtiofsd];
+      qemu.vhostUserPackages = with pkgs; [ virtiofsd ];
     };
     spiceUSBRedirection.enable = true;
     docker.enable = true;
@@ -48,7 +56,7 @@
     #vmware.host.enable = true;
     vmVariant = {
       virtualisation = {
-        qemu.options = ["-device virtio-vga"];
+        qemu.options = [ "-device virtio-vga" ];
         memorySize = 8192;
         cores = 4;
       };
@@ -66,7 +74,7 @@
   '';
 
   systemd.services.NetworkManager-wait-online.enable = false;
-  #systemd.services.systemd-networkd-wait-online.enable = false;
+  systemd.services.systemd-networkd-wait-online.enable = lib.mkForce false;
   networking.firewall.enable = false;
 
   services.avahi.enable = true;
@@ -105,9 +113,13 @@
     openFirewall = true;
   };
 
+  #NOTE: one must use zerotier-systemd-manager to get dns to work
+  #NOTE: manual approval in my.zerotier.com required - hence this netwokid can
+  #      be in public
   services.zerotierone = {
     enable = true;
-    joinNetworks = ["272f5eae16696d44"];
+    joinNetworks = [ "272f5eae16696d44" ];
+    #generateSystemdNetworkdConfig = true;
   };
 
   time.timeZone = "Europe/Berlin";
@@ -141,27 +153,27 @@
   };
 
   /*
-     services.greetd = {
-    enable = true;
-    settings = rec {
-      initial_session = {
-        command = ''
-          export XDG_SESSION_TYPE=wayland
-          export XDG_SESSION_DESKTOP=sway
-          export XDG_CURRENT_DESKTOP=sway
+       services.greetd = {
+      enable = true;
+      settings = rec {
+        initial_session = {
+          command = ''
+            export XDG_SESSION_TYPE=wayland
+            export XDG_SESSION_DESKTOP=sway
+            export XDG_CURRENT_DESKTOP=sway
 
-          # Wayland stuff
-          export QT_QPA_PLATFORM=wayland
-          export SDL_VIDEODRIVER=wayland
-          export _JAVA_AWT_WM_NONREPARENTING=1
-          export NIXOS
-          ${pkgs.sway}/bin/sway -c /home/xzvf/nix/home/sway/sway.conf
-        '';
-        user = "xzvf";
+            # Wayland stuff
+            export QT_QPA_PLATFORM=wayland
+            export SDL_VIDEODRIVER=wayland
+            export _JAVA_AWT_WM_NONREPARENTING=1
+            export NIXOS
+            ${pkgs.sway}/bin/sway -c /home/xzvf/nix/home/sway/sway.conf
+          '';
+          user = "xzvf";
+        };
+        default_session = initial_session;
       };
-      default_session = initial_session;
     };
-  };
   */
   xdg.portal = {
     enable = true;
@@ -187,8 +199,11 @@
   };
   systemd.user.services.mpris-proxy = {
     description = "Mpris proxy";
-    after = ["network.target" "sound.target"];
-    wantedBy = ["default.target"];
+    after = [
+      "network.target"
+      "sound.target"
+    ];
+    wantedBy = [ "default.target" ];
     serviceConfig.ExecStart = "${pkgs.bluez}/bin/mpris-proxy";
   };
 
@@ -228,8 +243,8 @@
   };
 
   systemd.services.disableInterrupt = {
-    wantedBy = ["multi-user.target"];
-    after = ["network.target"];
+    wantedBy = [ "multi-user.target" ];
+    after = [ "network.target" ];
     description = "Disable GPE 10 interrupt";
     serviceConfig = {
       Type = "oneshot";
@@ -245,7 +260,14 @@
     description = "Péter Bohner";
     shell = pkgs.zsh;
     ignoreShellProgramCheck = true;
-    extraGroups = ["networkmanager" "wheel" "dialout" "networkmanager" "docker" "video"];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "dialout"
+      "networkmanager"
+      "docker"
+      "video"
+    ];
   };
 
   nixpkgs.config = {

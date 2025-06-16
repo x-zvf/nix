@@ -3,7 +3,8 @@
   pkgs,
   inputs,
   ...
-}: {
+}:
+{
   home.username = "xzvf";
   home.homeDirectory = "/home/xzvf";
   home.stateVersion = "24.11";
@@ -32,6 +33,19 @@
       obs-backgroundremoval
       obs-pipewire-audio-capture
     ];
+  };
+
+  dconf = {
+    settings = {
+      "org/gnome/desktop/interface" = {
+        color-scheme = "prefer-dark";
+      };
+    };
+  };
+  qt = {
+    enable = true;
+    style.name = "adwaita-dark";
+    platformTheme.name = "adwaita";
   };
 
   home.sessionVariables = {

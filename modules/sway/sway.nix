@@ -4,7 +4,8 @@
   home,
   config,
   ...
-}: {
+}:
+{
   wayland.windowManager.sway = {
     enable = true;
     package = null;

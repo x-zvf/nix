@@ -1,4 +1,5 @@
-{lib, ...}: {
+{ lib, ... }:
+{
   programs.waybar = {
     enable = true;
     settings.mainBar = lib.importJSON ./config.jsonc;

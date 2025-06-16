@@ -93,7 +93,7 @@ require("conform").setup({
 		lua = { "stylua" },
 		python = { "isort", "black" },
 		javascript = { "prettierd" },
-		nix = { "alejandra" },
+		nix = { "nixfmt" },
 		rust = { "rustfmt" },
 		go = { "gofmt" },
 	},

@@ -2,7 +2,8 @@
   pkgs,
   lib,
   ...
-}: {
+}:
+{
   programs.neovim = {
     enable = true;
     viAlias = true;
@@ -12,7 +13,7 @@
       vim-sleuth
       gitsigns-nvim
 
-      plenary-nvim #required by telescope
+      plenary-nvim # required by telescope
       telescope-nvim
       telescope-ui-select-nvim
       telescope-fzf-native-nvim
