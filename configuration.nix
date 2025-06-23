@@ -136,10 +136,10 @@
     };
     displayManager = {
       autoLogin = {
-        enable = true;
+        enable = false;
         user = "xzvf";
       };
-      defaultSession = "sway";
+      #defaultSession = "sway";
       sddm = {
         enable = true;
         wayland.enable = true;
@@ -148,7 +148,7 @@
     desktopManager.plasma6.enable = true;
   };
   programs.sway = {
-    enable = true;
+    enable = false;
     wrapperFeatures.gtk = true;
   };
 

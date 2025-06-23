@@ -18,7 +18,7 @@
     ./modules/ghostty.nix
     ./modules/tmux/tmux.nix
     ./modules/neovim/neovim.nix
-    ./modules/sway-session.nix
+    # ./modules/sway-session.nix
     ./modules/scripts.nix
   ];
 
@@ -42,11 +42,11 @@
       };
     };
   };
-  qt = {
-    enable = true;
-    style.name = "adwaita-dark";
-    platformTheme.name = "adwaita";
-  };
+  #qt = {
+  #  enable = true;
+  #  #style.name = "adwaita-dark";
+  #  #platformTheme.name = "adwaita";
+  #};
 
   home.sessionVariables = {
     EDITOR = "nvim";
