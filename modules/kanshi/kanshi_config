@@ -3,7 +3,7 @@ profile laptop {
     exec swaymsg output "'eDP-1'" subpixel none
 }
 
-profile desktop {
+profile home {
     output "Dell Inc. DELL 2407WFP UY5457390H2S " enable mode 1920x1200@59.950Hz position 6096,960 scale 1 transform normal adaptive_sync on
     output "BNQ BenQ EW3280U A1L03067019" enable mode 3840x2160@59.997Hz position 2256,0 scale 1 transform normal adaptive_sync on
     output "eDP-1" enable mode 2256x1504@59.999Hz position 0,656 scale 1 transform normal adaptive_sync on
@@ -13,3 +13,10 @@ profile desktop {
     exec swaymsg output "'eDP-1'" subpixel none
 }
 
+profile itec {
+    output "eDP-1" enable mode 2256x1504@59.999Hz position 1128,1440 scale 1 transform normal adaptive_sync off
+    output "Dell Inc. DELL U2715H GH85D7CN1HPS" enable mode 2560x1440@59.951Hz position 1128,0 scale 1 transform normal adaptive_sync off
+
+    exec swaymsg output "'eDP-1'" subpixel none
+    exec swaymsg output "'Dell Inc. DELL U2715H GH85D7CN1HPS'" subpixel none
+}
