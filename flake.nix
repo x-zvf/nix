@@ -1,8 +1,8 @@
 {
   inputs = {
     nixpkgs = {
-      url = "github:nixos/nixpkgs/nixos-unstable";
-      #url = "path:/home/xzvf/contrib/nixpkgs";
+      #url = "github:nixos/nixpkgs/nixos-unstable";
+      url = "path:/home/xzvf/contrib/nixpkgs";
     };
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -18,12 +18,13 @@
       ...
     }@inputs:
     {
-      nixosConfigurations.default = nixpkgs.lib.nixosSystem {
+      nixosConfigurations.rubidium = nixpkgs.lib.nixosSystem {
         specialArgs = {
           inherit inputs;
         };
         modules = [
-          ./configuration.nix
+          ./hosts/rubidium.nix
+
           home-manager.nixosModules.home-manager
           {
             home-manager.users.xzvf = import ./home.nix;

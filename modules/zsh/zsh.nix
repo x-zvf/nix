@@ -69,13 +69,15 @@
       # Nix
       "np" = "NIXPKGS_ALLOW_UNFREE=1 nix-shell --run zsh -p";
       "nr" = "NIXPKGS_ALLOW_UNFREE=1 nix run --impure";
-      "snr" = "sudo nixos-rebuild --flake '/home/xzvf/nix#default'";
+      "snr" = "sudo nixos-rebuild --flake '/home/xzvf/nix#rubidium'";
       "matlab" = "nix run gitlab:doronbehar/nix-matlab";
       "mathematica" = "NIXPKGS_ALLOW_UNFREE=1 nix-shell -p mathematica --run wolframnb";
 
       "glances" = "glances --enable-plugin sensors";
       "ssh" = "TERM=xterm-256color ssh";
       "unfuckadb" = "sudo adb kill-server; sudo adb start-server; adb devices";
+      "unfuckzt" =
+        "sudo systemctl restart zerotierone.service systemd-resolved.service systemd-networkd.service NetworkManager";
       "yt-dl-mp3" =
         "yt-dlp -x --audio-format mp3 --audio-quality 0 -i --add-metadata --metadata-from-title";
     };
