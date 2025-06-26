@@ -36,6 +36,11 @@
       bindkey "$terminfo[kcuu1]" history-beginning-search-backward-end
       bindkey "$terminfo[kcud1]" history-beginning-search-forward-end
 
+      # normal+e -> edit command in $EDITOR
+      autoload -U edit-command-line
+      zle -N edit-command-line
+      bindkey -M vicmd e edit-command-line
+
       [[ ! -f ${./p10k.zsh} ]] || source ${./p10k.zsh}
       [[ ! -f ${./zsh-syntax-highlighting.sh} ]] || source ${./zsh-syntax-highlighting.sh}
       autoload -Uz promptinit && promptinit && prompt powerlevel10k
