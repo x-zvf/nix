@@ -1,0 +1,3 @@
+[submodule "nix-environments"]
+	path = nix-environments
+	url = https://github.com/nix-community/nix-environments.git
