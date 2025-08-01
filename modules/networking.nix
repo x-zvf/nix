@@ -19,7 +19,7 @@
   services.zerotierone = {
     enable = true;
     joinNetworks = [ "272f5eae16696d44" ];
-    generateSystemdNetworkdConfig = true;
+    #generateSystemdNetworkdConfig = true;
   };
 
 }
