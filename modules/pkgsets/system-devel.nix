@@ -29,4 +29,6 @@
     pkgs.platformio-core
     pkgs.openocd
   ];
+
+  services.flatpak.enable = true;
 }

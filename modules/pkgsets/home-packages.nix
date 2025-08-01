@@ -22,11 +22,9 @@ in
     (pkgs.wrapFirefox (pkgs.firefox-unwrapped.override { pipewireSupport = true; }) { })
 
     (homebank.overrideAttrs (oldAttrs: {
-      postInstall =
-        (oldAttrs.postInstall or "")
-        + ''
-          wrapProgram $out/bin/homebank --set GDK_BACKEND x11
-        '';
+      postInstall = (oldAttrs.postInstall or "") + ''
+        wrapProgram $out/bin/homebank --set GDK_BACKEND x11
+      '';
     }))
 
     libreoffice
@@ -71,6 +69,9 @@ in
     texliveFull
 
     spotify
+    qpwgraph
+
+    nomachine-client
 
     nerd-fonts.fira-code
     nerd-fonts.fira-mono

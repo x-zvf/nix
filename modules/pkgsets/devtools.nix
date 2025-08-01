@@ -1,9 +1,10 @@
-{ pkgs, ... }:
+{ pkgs, builtins, ... }:
 {
   imports = [
     #./neovim/neovim.nix
   ];
   home.packages = with pkgs; [
+    android-studio
     jetbrains.datagrip
     jetbrains.idea-ultimate
     jetbrains.pycharm-professional
@@ -13,13 +14,13 @@
     sublime4
     ghidra
     emacs
-    devdocs-desktop
 
     binwalk
     clang
     clang-tools
     gnumake
     clojure
+    clojure-lsp
     leiningen
     babashka
     cmake
@@ -92,11 +93,19 @@
 
     platformio
     avrdude
+
+    (mathematica.override {
+      source = pkgs.fetchurl {
+        url = "https://share.bohner.me/software/Wolfram_14.2.1_LIN_Bndl.sh";
+        sha256 = "sha256-DcZbetr5wO3i/DkchgpsW3RGHfa1PslA4fK+bRQ68Bg=";
+      };
+    })
   ];
   programs.vscode = {
     enable = true;
     profiles.default.extensions = with pkgs.vscode-extensions; [
       dracula-theme.theme-dracula
+      platformio.platformio-vscode-ide
     ];
   };
 
