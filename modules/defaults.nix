@@ -1,8 +1,8 @@
 { ... }:
 {
-  systemd.extraConfig = ''
-    DefaultTimeoutStopSec=5s
-  '';
+  systemd.settings.Manager = {
+    DefaultTimeoutStopSec = "5s";
+  };
 
   time.timeZone = "Europe/Berlin";
   console.keyMap = "uk";

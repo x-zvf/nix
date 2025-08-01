@@ -1,8 +1,8 @@
 {
   inputs = {
     nixpkgs = {
-      #url = "github:nixos/nixpkgs/nixos-unstable";
-      url = "path:/home/xzvf/contrib/nixpkgs";
+      url = "github:nixos/nixpkgs/nixos-unstable";
+      #url = "path:/home/xzvf/contrib/nixpkgs";
     };
     home-manager = {
       url = "github:nix-community/home-manager";
