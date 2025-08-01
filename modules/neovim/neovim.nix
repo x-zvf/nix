@@ -42,10 +42,10 @@
       dracula-nvim
 
       lspkind-nvim
-      copilot-lua
-      copilot-cmp
-      copilot-lualine
       lualine-nvim
+
+      conjure
+      cmp-conjure
     ];
     extraLuaConfig = lib.fileContents ./init.lua;
   };

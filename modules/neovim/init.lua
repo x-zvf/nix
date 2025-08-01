@@ -1,3 +1,5 @@
+vim.g["conjure#mapping#doc_word"] = "gk"
+
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.mouse = "a"
@@ -62,14 +64,14 @@ require("telescope").load_extension("fzf")
 require("telescope").load_extension("ui-select")
 
 local builtin = require("telescope.builtin")
-vim.keymap.set("n", "<leader>sh", builtin.help_tags, { desc = "[S]earch [H]elp" })
-vim.keymap.set("n", "<leader>sk", builtin.keymaps, { desc = "[S]earch [K]eymaps" })
-vim.keymap.set("n", "<leader>sf", builtin.find_files, { desc = "[S]earch [F]iles" })
---vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
-vim.keymap.set("n", "<leader>sg", builtin.live_grep, { desc = "[S]earch by [G]rep" })
-vim.keymap.set("n", "<leader>sd", builtin.diagnostics, { desc = "[S]earch [D]iagnostics" })
-vim.keymap.set("n", "<leader>sr", builtin.resume, { desc = "[S]earch [R]esume" })
-vim.keymap.set("n", "<leader>s.", builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
+vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "[F]ind [H]elp" })
+vim.keymap.set("n", "<leader>fk", builtin.keymaps, { desc = "[F]ind [K]eymaps" })
+vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "[F]ind [F]iles" })
+--vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[F]ind current [W]ord' })
+vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "[F]ind by [G]rep" })
+vim.keymap.set("n", "<leader>fd", builtin.diagnostics, { desc = "[F]ind [D]iagnostics" })
+vim.keymap.set("n", "<leader>fr", builtin.resume, { desc = "[F]ind [R]esume" })
+vim.keymap.set("n", "<leader>f.", builtin.oldfiles, { desc = '[F]ind Recent Files ("." for repeat)' })
 vim.keymap.set("n", "<leader><leader>", builtin.buffers, { desc = "[ ] Find existing buffers" })
 vim.keymap.set("n", "<leader>/", function()
 	builtin.current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
@@ -101,12 +103,12 @@ require("conform").setup({
 
 local autoformat = true
 
-vim.keymap.set("n", "<leader>fe", function()
+vim.keymap.set("n", "<leader>fae", function()
 	autoformat = true
-end, { desc = "[F]ormat on Save [E]nable" })
-vim.keymap.set("n", "<leader>fd", function()
+end, { desc = "[F]ormat [A]utomatically] on save [E]nable" })
+vim.keymap.set("n", "<leader>fad", function()
 	autoformat = false
-end, { desc = "[F]ormat on Save [D]isable" })
+end, { desc = "[F]ormat [A]utomatically on save [D]isable" })
 
 vim.api.nvim_create_autocmd("BufWritePre", {
 	pattern = "*",
@@ -179,6 +181,7 @@ local servers = {
 	ts_ls = {},
 	emmet_language_server = {},
 	tailwindcss = {},
+	clojure_lsp = {},
 	ltex = {
 		language = "en-GB",
 		additionalRules = {
@@ -190,10 +193,10 @@ local servers = {
 			require("ltex_extra").setup()
 		end,
 		filetypes = {
-			"bibtex",
+			-- "bibtex",
 			"context",
 			"context.tex",
-			"html",
+			-- "html",
 			"latex",
 			"markdown",
 			"org",
@@ -311,8 +314,8 @@ cmp.setup({
 		{ name = "nvim_lsp" },
 		{ name = "luasnip" },
 		{ name = "path" },
+		{ name = "conjure" },
 		--{ name = "spell" },
-		{ name = "copilot" },
 	},
 })
 
@@ -365,11 +368,6 @@ vim.api.nvim_create_user_command("LTexSetLang", function(opts)
 	set_ltex_lang(opts.fargs[1])
 end, { nargs = 1 })
 
-vim.api.nvim_create_user_command("LoadCopilot", function()
-	require("copilot").setup({})
-	require("copilot_cmp").setup({})
-end, {})
-
 require("lualine").setup({
 	options = {
 		theme = "dracula-nvim",
@@ -380,7 +378,7 @@ require("lualine").setup({
 		lualine_a = { "mode" },
 		lualine_b = { "branch", "diff", "diagnostics" },
 		lualine_c = { "filename" },
-		lualine_x = { "copilot", "encoding", "fileformat", "filetype" },
+		lualine_x = { "encoding", "fileformat", "filetype" },
 		lualine_y = { "progress" },
 		lualine_z = { "location" },
 	},
