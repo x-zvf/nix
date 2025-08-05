@@ -41,7 +41,7 @@
     tailwindcss
     tailwindcss-language-server
     emmet-language-server
-    live-server
+    nodePackages.live-server
 
     #go
     go
