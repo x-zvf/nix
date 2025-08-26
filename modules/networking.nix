@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ lib, pkgs, ... }:
 {
   systemd.network.enable = true;
   systemd.services.NetworkManager-wait-online.enable = false;
@@ -9,7 +9,12 @@
   services.resolved.enable = true;
 
   networking = {
-    networkmanager.enable = true;
+    networkmanager = {
+      enable = true;
+      plugins = [
+        pkgs.networkmanager-openvpn
+      ];
+    };
     firewall.enable = false;
   };
 
