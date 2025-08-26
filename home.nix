@@ -20,6 +20,8 @@
     ./modules/neovim/neovim.nix
     # ./modules/sway-session.nix
     ./modules/scripts.nix
+
+    ./modules/distrobox.nix
   ];
 
   # MISC

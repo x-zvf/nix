@@ -60,7 +60,6 @@ in
     xournalpp
     obsidian
 
-    distrobox
     (bottles.override { removeWarningPopup = true; })
     pferd
     timewarrior
