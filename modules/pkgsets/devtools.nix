@@ -4,11 +4,11 @@
     #./neovim/neovim.nix
   ];
   home.packages = with pkgs; [
-    android-studio
-    jetbrains.datagrip
-    jetbrains.idea-ultimate
-    jetbrains.pycharm-professional
-    jetbrains.clion
+    #android-studio
+    #jetbrains.datagrip
+    #jetbrains.idea-ultimate
+    #jetbrains.pycharm-professional
+    #jetbrains.clion
     insomnia
     sublime-merge
     sublime4
